@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: remick_travel_planner_production
-  username: remick_travel_planner
-  password: <%= ENV["REMICK_TRAVEL_PLANNER_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
