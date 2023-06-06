@@ -1,6 +1,5 @@
 class TripsController < ApplicationController
     skip_before_action :authorize
-
     def index
         trips = Trip.all
         render json: trips, status: :ok
@@ -14,7 +13,6 @@ class TripsController < ApplicationController
             render json: {error: "Trip not found"}, status: :not_found
         end
     end
-
     # def test
     #     countries = find_country(params[:country])
 
