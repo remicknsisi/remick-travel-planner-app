@@ -1,6 +1,7 @@
-// client/src/components/App.js
 import { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { UserProvider } from "./context/UserProvider.js";
+import Nav from "./components/Nav.js";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,18 +13,19 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
-          </Route>
-          <Route path="/">
-            <h1>Page Count: {count}</h1>
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      <UserProvider>
+      <header className="App-header">
+        <Nav />
+        <Routes>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/trips" element={<DisplayTrips/>}/>
+          <Route path="/travelagents" element={<DisplayTravelAgents/>}/>
+        </Routes>
+      </header>
+      </UserProvider>
+    </div>
   );
 }
 
