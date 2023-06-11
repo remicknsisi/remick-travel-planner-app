@@ -1,4 +1,6 @@
 class TravelAgentsController < ApplicationController
+    skip_before_action :authorize
+
     def index
         agents = TravelAgent.all
         render json: agents, status: :ok
