@@ -15,16 +15,16 @@ function App() {
       <header className="App-header">
         <Nav />
         <Switch>
-          <Route path="/login">
+          <Route exact path="/login">
             <Login/>
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Home/>
           </Route>
-          <Route path="/trips">
+          <Route exact path="/trips">
             <DisplayTrips/>
           </Route>
-          <Route path="/travelagents">
+          <Route exact path="/travelagents">
             <DisplayTravelAgents/>
           </Route>
         </Switch>
