@@ -8,6 +8,7 @@ import DisplayTrips from "./components/DisplayTrips.js";
 import DisplayTravelAgents from "./components/DisplayTravelAgents.js";
 import TravelAgentDetails from "./components/TravelAgentDetails.js";
 import Signup from "./components/Signup.js";
+import NewReviewForm from "./components/NewReviewForm.js";
 
 function App() {
 
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <Home/>
+          </Route>
+          <Route exact path="/travelagents/:id/reviews/new">
+            <NewReviewForm/>
           </Route>
           <Route exact path="/trips">
             <DisplayTrips/>

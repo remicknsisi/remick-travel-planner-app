@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import Review from "./Review";
 
 function TravelAgentDetails() {
@@ -7,6 +7,7 @@ function TravelAgentDetails() {
         reviews: []
     })
     const { id } = useParams()
+    const history = useHistory()
 
     useEffect(() => {
         fetch(`/travel_agents/${id}`)
@@ -16,14 +17,13 @@ function TravelAgentDetails() {
 
     const reviews = travelAgent.reviews.map(review => <Review key={review.id} review={review}/>)
 
-    console.log(travelAgent)
-
     return (
         <div>
             <div className="text">
                 <img/>
                 Name: {travelAgent.name} | Contact: {travelAgent.email} | Available for Booking? {travelAgent.available ? '✅' : '❌'}
                 {reviews}
+                <button onClick={() => history.push(`/travelagents/${id}/reviews/new`)}>Booked with me before? Leave a review.</button>
             </div>
         </div>
     );

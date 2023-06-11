@@ -23,7 +23,7 @@ function DisplayTravelAgents() {
                     return (
                         <TravelAgent key={travelAgent.id} travelAgent={travelAgent}/>
                     )
-                }) : null}
+                }) : <p>Loading agents...</p>}
             </div>
         </div>
     );
