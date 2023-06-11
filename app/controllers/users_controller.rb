@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize
+    skip_before_action :authorize, only: :create
 
     def show
         if @user
-            render json: @user, status: :ok
+            render json: @user, include: :reviews, status: :ok
         else 
             render json: { error: "Not authorized" }, status: :unauthorized
         end

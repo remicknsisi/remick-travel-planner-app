@@ -1,5 +1,4 @@
 class TripsController < ApplicationController
-    skip_before_action :authorize
     
     def index
         trips = Trip.all

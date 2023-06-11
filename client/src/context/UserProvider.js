@@ -19,8 +19,14 @@ const UserProvider = ({ children }) => {
   const logout = () => {setCurrentUser(null)}
   const signup = (newUser) => {setCurrentUser(newUser)}
 
+  function handleSubmitReview (newReview){
+    // const userUpdatedReviews = [...currentUser.reviews, newReview]
+    const updatedUser = {...currentUser, reviews: [...currentUser.reviews, newReview]}
+    setCurrentUser(updatedUser)
+  }
+
   return (
-    <UserContext.Provider value={{currentUser, login, logout, signup}}>
+    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview}}>
       {children}
     </UserContext.Provider>
   )
