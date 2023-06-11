@@ -7,6 +7,7 @@ import Login from "./components/Login.js";
 import DisplayTrips from "./components/DisplayTrips.js";
 import DisplayTravelAgents from "./components/DisplayTravelAgents.js";
 import TravelAgentDetails from "./components/TravelAgentDetails.js";
+import Signup from "./components/Signup.js";
 
 function App() {
 
@@ -18,6 +19,9 @@ function App() {
         <Switch>
           <Route exact path="/login">
             <Login/>
+          </Route>
+          <Route exact path="/signup">
+            <Signup/>
           </Route>
           <Route exact path="/">
             <Home/>

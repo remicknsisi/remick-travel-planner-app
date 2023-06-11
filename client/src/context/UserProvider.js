@@ -17,10 +17,10 @@ const UserProvider = ({ children }) => {
 
   const login = (user) => {setCurrentUser(user)}
   const logout = () => {setCurrentUser(null)}
-//   const signup = (newUser) => {setCurrentUser(newUser)}
+  const signup = (newUser) => {setCurrentUser(newUser)}
 
   return (
-    <UserContext.Provider value={{currentUser, login, logout}}>
+    <UserContext.Provider value={{currentUser, login, logout, signup}}>
       {children}
     </UserContext.Provider>
   )
