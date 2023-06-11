@@ -20,9 +20,9 @@ const UserProvider = ({ children }) => {
 //   const signup = (newUser) => {setCurrentUser(newUser)}
 
   return (
-    <StudentContext.Provider value={{currentUser, login, logout, signup}}>
+    <UserContext.Provider value={{currentUser, login, logout}}>
       {children}
-    </StudentContext.Provider>
+    </UserContext.Provider>
   )
 }
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { UserProvider } from "./context/UserProvider.js";
 import Nav from "./components/Nav.js";
 import Home from "./components/Home.js";
@@ -13,15 +13,13 @@ function App() {
     <div className="App">
       <UserProvider>
       <header className="App-header">
-        <BrowserRouter>
-        <Switch>
         <Nav />
+        <Switch>
           <Route path="/login" element={<Login/>}/>
           <Route path="/" element={<Home/>}/>
           <Route path="/trips" element={<DisplayTrips/>}/>
           <Route path="/travelagents" element={<DisplayTravelAgents/>}/>
         </Switch>
-        </BrowserRouter>
       </header>
       </UserProvider>
     </div>
