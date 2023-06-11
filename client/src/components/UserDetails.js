@@ -4,7 +4,8 @@ function UserDetails() {
 
     return (
         <div>
-            this is a user details component
+            <button>Edit My Info</button>
+            <button>Delete My Account</button>
         </div>
     );
 }

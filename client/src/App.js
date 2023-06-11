@@ -18,6 +18,7 @@ function App() {
     <div className="App">
       <UserProvider>
       <header className="App-header">
+        <h1>Vacation Planner</h1>
         <Nav />
         <Switch>
           <Route exact path="/login">

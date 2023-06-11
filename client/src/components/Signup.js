@@ -64,6 +64,7 @@ function Signup (){
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className='signup-input'/>
+                <br/>
                 <label>Age: </label>
                 <input
                 type="text"

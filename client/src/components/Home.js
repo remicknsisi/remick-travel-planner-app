@@ -12,6 +12,7 @@ function Home() {
                 <br/>
                 Click below or <Link to={`/signup`}>sign up</Link> to get started.
                 <br/>
+                <br/>
                 <button className="button" onClick={() => history.push('/trips/new')}>Get Started 🌴</button>
             </div>
         </div>
