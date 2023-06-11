@@ -6,6 +6,7 @@ import Home from "./components/Home.js";
 import Login from "./components/Login.js";
 import DisplayTrips from "./components/DisplayTrips.js";
 import DisplayTravelAgents from "./components/DisplayTravelAgents.js";
+import TravelAgentDetails from "./components/TravelAgentDetails.js";
 
 function App() {
 
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route exact path="/travelagents">
             <DisplayTravelAgents/>
+          </Route>
+          <Route exact path="/travelagents/:id">
+            <TravelAgentDetails/>
           </Route>
         </Switch>
       </header>
