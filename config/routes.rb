@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :travel_agents, only: [:index, :show]
   resources :users, only: [:show, :create, :update, :destroy]
 
+  post "/signup", to: "users#create"
 
   get '*path',
       to: 'fallback#index',
