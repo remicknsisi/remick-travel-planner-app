@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { UserProvider } from "./context/UserProvider.js";
 import Nav from "./components/Nav.js";
@@ -15,10 +15,18 @@ function App() {
       <header className="App-header">
         <Nav />
         <Switch>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/trips" element={<DisplayTrips/>}/>
-          <Route path="/travelagents" element={<DisplayTravelAgents/>}/>
+          <Route path="/login">
+            <Login/>
+          </Route>
+          <Route path="/">
+            <Home/>
+          </Route>
+          <Route path="/trips">
+            <DisplayTrips/>
+          </Route>
+          <Route path="/travelagents">
+            <DisplayTravelAgents/>
+          </Route>
         </Switch>
       </header>
       </UserProvider>

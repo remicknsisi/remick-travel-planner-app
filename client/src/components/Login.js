@@ -4,7 +4,7 @@ function Login() {
 
   return (
     <div>
-        This is the Login component
+        <p>This is the Login component</p>
     </div>
   );
 }
