@@ -26,11 +26,17 @@ const UserProvider = ({ children }) => {
   }
 
   function handleDeleteAccount(){
-    console.log('handling deleting account!')
+    fetch(`/users/${currentUser.id}`, {
+        method: 'DELETE',
+        headers: {"Content-Type": "application/json"}})
+      .then(() => {
+        history.push(`/login`)
+        setCurrentUser(null)
+        })
   }
 
-  function handleEditUser(){
-    console.log('handling editing user!')
+  function handleEditUser(updatedUser){
+    setCurrentUser(updatedUser)
   }
 
   return (

@@ -6,9 +6,10 @@ User.create(name: "Sisi Remick", age: 25, email: "remicknsisi@gmail.com", image:
 
 25.times do
     TravelAgent.create(
-        name: Faker::Name.name, 
+        name: Faker::Name.unique.name, 
         email: Faker::Internet.email, 
-        available: [true, false].sample
+        available: [true, false].sample,
+        image: Faker::Avatar.image
         )
 end
 

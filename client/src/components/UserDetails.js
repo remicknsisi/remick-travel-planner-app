@@ -3,7 +3,7 @@ import { UserContext } from "../context/UserProvider.js";
 import EditProfileForm from "./EditProfileForm.js";
 
 function UserDetails() {
-    const { currentUser, handleDeleteAccount } = useContext(UserContext)
+    const { handleDeleteAccount, currentUser } = useContext(UserContext)
     const [isHidden, setIsHidden] = useState(true)
 
     function confirmDelete(){
@@ -12,7 +12,8 @@ function UserDetails() {
         }
     }
 
-    return (
+    if (currentUser) {
+        return (
         <div>
             <button onClick={() => setIsHidden(!isHidden)}>Edit My Info</button>
             <button onClick={() => {
@@ -21,6 +22,8 @@ function UserDetails() {
             {isHidden ? null : <EditProfileForm/>}
         </div>
     );
-}
+    } else {
+        <p>Please login or signup to view this page.</p>
+    }}
 
 export default UserDetails;
