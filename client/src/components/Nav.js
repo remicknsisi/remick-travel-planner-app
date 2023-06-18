@@ -22,7 +22,7 @@ function Nav() {
             <NavLink to="/trips" className="nav-link">My Trips</NavLink>
             <NavLink to="/trips/new" className="nav-link">Plan Your Own Trip</NavLink>
             <NavLink to="/travelagents" className="nav-link">Find an Agent</NavLink>
-            <NavLink to="/users/:id" className="nav-link">My Account</NavLink>
+            <button onClick={() => history.push(`/users/${currentUser.id}`)}>My Account</button>
             {currentUser ? <button onClick={handleLogout}>Logout</button> : <button onClick={() => history.push('/login')}>Login</button>}
         </div>
         );

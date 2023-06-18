@@ -25,8 +25,12 @@ const UserProvider = ({ children }) => {
     setCurrentUser(updatedUser)
   }
 
+  function handleDeleteAccount(){
+    console.log('hi!')
+  }
+
   return (
-    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview}}>
+    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview, handleDeleteAccount}}>
       {children}
     </UserContext.Provider>
   )
