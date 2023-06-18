@@ -33,3 +33,7 @@
   border: 10px outset #8066FF;
   padding: 10px
 }
+
+.error-message {
+  color: red
+}

@@ -39,8 +39,6 @@ function Signup (){
                 })
             } else {
                 res.json().then((newUser) => {
-                    console.log(newUser.errors)
-
                     setUsername('')
                     setPassword('')
                     setPasswordConfirmation('')
@@ -48,8 +46,8 @@ function Signup (){
                     setEmail('')
                     setAge('')
                     setImage('')
-                    // const errorLis = newUser.errors.map(error => <li key={error}>{error}</li>)
-                    // setErrorsList(errorLis)
+                    const errorLis = newUser.errors.map(error => <li key={error}>{error}</li>)
+                    setErrorsList(errorLis)
                 })
             }
         })
@@ -83,7 +81,7 @@ function Signup (){
                 onChange={(e) => setEmail(e.target.value)}
                 className='signup-input'/>
                 <br/>
-                <label>Image: </label>
+                <label>Image (optional): </label>
                 <input
                 type="text"
                 placeholder="Image URL here"

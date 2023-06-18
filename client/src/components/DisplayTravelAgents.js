@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { UserContext } from "../context/UserProvider.js";
 import TravelAgent from "./TravelAgent";
 
 function DisplayTravelAgents() {
     const [travelAgents, setTravelAgents] = useState([])
+    const { currentUser } = useContext(UserContext)
 
     useEffect(() => {
         fetch('/travel_agents')
@@ -15,7 +17,8 @@ function DisplayTravelAgents() {
             ) 
         }, [])
 
-    return (
+    if (currentUser) {
+        return (
         <div>
             <div className="text">
                 Meet our Agents
@@ -27,6 +30,10 @@ function DisplayTravelAgents() {
             </div>
         </div>
     );
-}
+} else {
+    return (
+        <p>Please login or signup to view this page.</p>
+    )
+}}
 
 export default DisplayTravelAgents;
