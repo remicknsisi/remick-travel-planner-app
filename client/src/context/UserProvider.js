@@ -26,11 +26,15 @@ const UserProvider = ({ children }) => {
   }
 
   function handleDeleteAccount(){
-    console.log('hi!')
+    console.log('handling deleting account!')
+  }
+
+  function handleEditUser(){
+    console.log('handling editing user!')
   }
 
   return (
-    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview, handleDeleteAccount}}>
+    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview, handleDeleteAccount, handleEditUser}}>
       {children}
     </UserContext.Provider>
   )
