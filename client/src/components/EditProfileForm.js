@@ -35,8 +35,6 @@ function EditProfileForm () {
             if(res.ok){
                 res.json().then((updatedUser) => {
                     handleEditUser(updatedUser)
-                    // const newStudentsArray = students.map(student => student.id === updatedStudent.id ? updatedStudent : student)
-                    // setStudents(newStudentsArray)
                     history.push('/')})
             } else {
                 res.json().then((message) => {
