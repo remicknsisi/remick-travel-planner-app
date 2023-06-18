@@ -39,6 +39,8 @@ function Signup (){
                 })
             } else {
                 res.json().then((newUser) => {
+                    console.log(newUser.errors)
+
                     setUsername('')
                     setPassword('')
                     setPasswordConfirmation('')
@@ -46,8 +48,8 @@ function Signup (){
                     setEmail('')
                     setAge('')
                     setImage('')
-                    const errorLis = newUser.errors.map(error => <li key={error}>{error}</li>)
-                    setErrorsList(errorLis)
+                    // const errorLis = newUser.errors.map(error => <li key={error}>{error}</li>)
+                    // setErrorsList(errorLis)
                 })
             }
         })
