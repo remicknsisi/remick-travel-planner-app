@@ -46,11 +46,11 @@ function NewReviewForm () {
     return (
         <div className="review-container">
             <label>Leave a review for NAME: </label>
-            <form className="review-form" onSubmit={onSubmitReview}>
-            Leave a Comment: <input className="review-input" type="text" placeholder="E.g. This agent is the best!" value={newComment} onChange={e => setNewComment(e.target.value)}>
+            <form className="form" onSubmit={onSubmitReview}>
+            Leave a Comment: <input className="form-input" type="text" placeholder="E.g. This agent is the best!" value={newComment} onChange={e => setNewComment(e.target.value)}>
                 </input>
                 <br/>
-            Choose a Rating: <input className="review-input" type="number" placeholder="Rate 1-5 Stars" value={newRating} onChange={e => setNewRating(e.target.value)}>
+            Choose a Rating: <input className="form-input" type="number" placeholder="Rate 1-5 Stars" value={newRating} onChange={e => setNewRating(e.target.value)}>
                 </input>
                 <br/>
                 <button>Submit</button>

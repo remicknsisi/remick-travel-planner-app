@@ -47,17 +47,17 @@ function EditProfileForm () {
 
     if (currentUser) {
     return (
-        <div className="review-container">
+        <div className="text">
             <h2>Edit Profile: </h2>
-            <form onSubmit={handleEditProfile} className="review-form">
+            <form onSubmit={handleEditProfile} className="form">
                 <label>Edit Full Name: </label>
-                <input className="review-input" type="text" onChange={(e) => setNewName(e.target.value)} value={newName} placeholder="Full Name" />
+                <input className="form-input" type="text" onChange={(e) => setNewName(e.target.value)} value={newName} placeholder="Full Name" />
                 <br/>
                 <label>Edit Age: </label>
-                <input className="review-input" type="number" onChange={(e) => setNewAge(e.target.value)} value={newAge} placeholder="Age" />
+                <input className="form-input" type="number" onChange={(e) => setNewAge(e.target.value)} value={newAge} placeholder="Age" />
                 <br/>
                 <label>Edit Image URL: </label>
-                <input className="review-input" type="text" onChange={(e) => setNewImage(e.target.value)} value={newImage} placeholder="Image URL" />
+                <input className="form-input" type="text" onChange={(e) => setNewImage(e.target.value)} value={newImage} placeholder="Image URL" />
                 <br/>
                 <button type="submit">Finish Editing Profile ✏️ </button>
                 <p className="error-message">{errorsList}</p>
