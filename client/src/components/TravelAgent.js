@@ -8,11 +8,19 @@ function TravelAgent({ travelAgent }) {
     console.log(travelAgent)
 
     return (
-        <div>
-            <div className="text">
-                <img src={image}/>
-                Name: {name} | Contact: {email} | Available for Booking? {available ? '✅' : '❌'}
+        <div className="card-container">
+            <div className="agent-card">
+            <img src={image} className="agent-prof-pic"/>
+                <div className="agent-details">
+                <br/>
+                Name: {name}
+                <br/>
+                Contact: {email}
+                <br/>
+                Available for Booking? {available ? '✅' : '❌'}
+                <br/>
                 <button className="button" onClick={() => history.push(`/travelagents/${id}`)}>Learn More</button>
+                </div>
             </div>
         </div>
     );

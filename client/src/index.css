@@ -37,3 +37,25 @@
 .error-message {
   color: red
 }
+
+.agent-prof-pic {
+  border: 2px solid black;
+}
+
+.agent-details {
+  padding: 10px;
+}
+
+.agent-card {
+  border: 5px solid black;
+  padding: 10px;
+  display:inline-flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 1000px */
+}
+
+.card-container {
+  padding: 10px;
+  /* display:flex; */
+}
