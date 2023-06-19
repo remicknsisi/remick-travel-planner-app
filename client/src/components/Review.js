@@ -4,6 +4,8 @@ function Review({ review }) {
     const [error, setError] = useState('')
     const {comment, rating, user, id} = review
 
+    console.log(review)
+
 
     function onDelete(){
         fetch(`/reviews/${id}`, {

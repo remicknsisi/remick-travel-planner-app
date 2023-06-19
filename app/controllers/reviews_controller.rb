@@ -9,6 +9,16 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def destroy
+        review = Review.find_by(id: params[:id])
+        if @user && @user.id == review.user_id
+            review.destroy
+            render json: review, status: :ok
+        else
+            render json: { error: "You can only delete your own reviews!" }, status: :unauthorized
+        end
+    end
+
     private
 
     def review_params

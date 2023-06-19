@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :trips, only: [:index, :show]
   resources :travel_agents, only: [:index, :show]
   resources :users, only: [:show, :create, :update, :destroy]
+  resources :reviews, only: [:destroy]
 
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
