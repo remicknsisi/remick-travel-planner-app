@@ -5,6 +5,8 @@ function TravelAgent({ travelAgent }) {
     const {available, name, email, id, image} = travelAgent
     const history = useHistory()
 
+    console.log(travelAgent.email)
+
     return (
         <div className="card-container">
             <div className="agent-card">

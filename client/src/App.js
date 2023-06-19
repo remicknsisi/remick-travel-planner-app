@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <UserProvider>
       <header className="App-header">
-        <h1 onClick={() => history.push('/')}>Vacation Planner</h1>
+        <h1 onClick={() => history.push('/')}>Remick Vacations</h1>
         <Nav />
         <Switch>
           <Route exact path="/login">

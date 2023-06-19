@@ -5,6 +5,12 @@ class TravelAgent < ApplicationRecord
 
     def rating
         ratings = self.reviews.map {|review| review.rating}
-        rating = ratings.sum / ratings.size
+        if ratings.length > 0
+            rating = ratings.sum / ratings.size
+        end
+    end
+
+    def email
+        email = self.name.gsub(/\s+/, "") + '@remickvacationer.com'
     end
 end
