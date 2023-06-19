@@ -56,7 +56,7 @@ function Signup (){
     return (
         <div className='signup-container'>
             <h1 className="signup-header">Sign Up Below</h1>
-            <form onSubmit={handleSubmit} className="signup-form">
+            <form onSubmit={handleSubmit} className="form">
                 <label>Name: </label>
                 <input
                 type="text"

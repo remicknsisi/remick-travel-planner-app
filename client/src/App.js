@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import { UserProvider } from "./context/UserProvider.js";
 import Nav from "./components/Nav.js";
@@ -11,6 +11,7 @@ import Signup from "./components/Signup.js";
 import NewReviewForm from "./components/NewReviewForm.js";
 import TripDetails from "./components/TripDetails.js";
 import UserDetails from "./components/UserDetails.js";
+import NewTripForm from "./components/NewTripForm.js";
 
 function App() {
   const history = useHistory()
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route exact path="/trips">
             <DisplayTrips/>
+          </Route>
+          <Route exact path="/trips/new">
+            <NewTripForm/>
           </Route>
           <Route exact path="/trips/:id">
             <TripDetails/>

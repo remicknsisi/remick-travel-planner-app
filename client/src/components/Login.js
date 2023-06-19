@@ -42,7 +42,7 @@ function Login() {
     return (
     <div className='login-container'>
     <h1 className="login-header">Log In Below</h1>
-      <form onSubmit={handleSubmit} className="login-form">
+      <form onSubmit={handleSubmit} className="form">
         Username: 
         <input
           type="text"
@@ -59,6 +59,7 @@ function Login() {
           className='login-input'
         />
         {Boolean(error) ? <p className="error-message">**{error}**</p> : null}
+        <br/><br/>
         <button type="submit">Login</button>
         <p className='signup-prompt'>Don't have an account? <Link to={`/signup`}>Sign up</Link></p>
       </form>
