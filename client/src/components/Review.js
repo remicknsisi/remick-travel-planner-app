@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../context/UserProvider.js";
 
-function Review({ review }) {
+function Review({ review, onDelete }) {
     const [error, setError] = useState('')
     const {comment, rating, user, id} = review
-
-    console.log(review)
-
+    const { handleDeleteReview } = useContext(UserContext)
 
     function onDelete(){
         fetch(`/reviews/${id}`, {
@@ -15,7 +14,8 @@ function Review({ review }) {
             if (res.ok){
                 res.json()
                 .then(deletedReview => {
-                    console.log(deletedReview)})
+                    handleDeleteReview(deletedReview)
+                    onDelete(deletedReview)})
             } else {
                 res.json()
                 .then(message => {
@@ -32,7 +32,7 @@ function Review({ review }) {
                 <br/>
                 Posted by: {user.name}
                 <button onClick={() => onDelete()}>Delete</button>
-                {error}
+                <p className="error-message">{error}</p>
             </div>
         </div>
     );

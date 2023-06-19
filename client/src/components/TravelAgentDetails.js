@@ -15,13 +15,21 @@ function TravelAgentDetails() {
         .then(t => setTravelAgent(t))
     }, [])
 
-    const reviews = travelAgent.reviews.map(review => <Review key={review.id} review={review}/>)
+    function handleDeleteReview(deletedReview){
+        const updatedReviews = travelAgent.reviews.filter(review => review.id !== deletedReview.id)
+        const agentWithUpdatedReviews = {...travelAgent, reviews: updatedReviews}
+        setTravelAgent(agentWithUpdatedReviews)
+    }
+
+    const reviews = travelAgent.reviews.map(review => <Review key={review.id} review={review} onDelete={handleDeleteReview}/>)
 
     return (
         <div>
             <h2>{travelAgent.name}</h2>
             <div className="agent-card">
                 <img src={travelAgent.image}/>
+                <br/>
+                Overall Rating: {'⭐'.repeat(travelAgent.rating)}
                 <br/>
                 Contact: {travelAgent.email}
                 <br/>

@@ -39,8 +39,14 @@ const UserProvider = ({ children }) => {
     setCurrentUser(updatedUser)
   }
 
+  function handleDeleteReview(deletedReview){
+    const userUpdatedReviews = currentUser.reviews.filter(review => review.id !== deletedReview.id)
+    const updatedUser = {...currentUser, reviews: userUpdatedReviews}
+    setCurrentUser(updatedUser)
+  }
+
   return (
-    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview, handleDeleteAccount, handleEditUser}}>
+    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview, handleDeleteAccount, handleEditUser, handleDeleteReview}}>
       {children}
     </UserContext.Provider>
   )
