@@ -14,8 +14,6 @@ import UserDetails from "./components/UserDetails.js";
 
 function App() {
   const history = useHistory()
-
-
   return (
     <div className="App">
       <UserProvider>

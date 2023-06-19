@@ -8,7 +8,7 @@ function Home() {
     return (
         <div className="home">
             <div className="welcome">
-                <h2>Welcome to Vacation Planner!</h2>
+                <h2>Welcome to Remick Vacations Planner!</h2>
                 Click below or <Link to={`/signup`}>sign up</Link> to get started.
                 <br/>
                 <br/>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { UserContext } from "../context/UserProvider.js";
 
@@ -6,9 +6,23 @@ function NewReviewForm () {
     const [newComment, setNewComment] = useState('')
     const [newRating, setNewRating] = useState()
     const [errorsList, setErrorsList] = useState([])
+    const [travelAgents, setTravelAgents] = useState([])
     const { handleSubmitReview } = useContext(UserContext)
     const { id } = useParams()
     const history = useHistory()
+
+    useEffect(() => {
+        fetch('/travel_agents')
+        .then(res => {
+            if (res.ok) {
+              res.json()
+              .then(travelAgentData => {
+                setTravelAgents(travelAgentData)})
+            }}
+            ) 
+        }, [])
+    
+    const reviewed_agent = travelAgents.find(t => t.id = id)
 
     function onSubmitReview(e){
         e.preventDefault()
@@ -44,15 +58,15 @@ function NewReviewForm () {
     }
 
     return (
-        <div className="review-container">
-            <label>Leave a review for NAME: </label>
+        <div className="review-form-container">
+            {reviewed_agent ? <h2>Leave a review for {reviewed_agent.name}: </h2> : null}
             <form className="form" onSubmit={onSubmitReview}>
             Leave a Comment: <input className="form-input" type="text" placeholder="E.g. This agent is the best!" value={newComment} onChange={e => setNewComment(e.target.value)}>
                 </input>
                 <br/>
             Choose a Rating: <input className="form-input" type="number" placeholder="Rate 1-5 Stars" value={newRating} onChange={e => setNewRating(e.target.value)}>
                 </input>
-                <br/>
+                <br/><br/>
                 <button>Submit</button>
                 <p className="error-message">{errorsList}</p>
             </form>
