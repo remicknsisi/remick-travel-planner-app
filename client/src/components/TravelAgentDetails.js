@@ -19,12 +19,13 @@ function TravelAgentDetails() {
 
     return (
         <div>
-            <div className="text">
-                <img/>
+            <div className="agent-card">
+                <img src={travelAgent.image}/>
                 Name: {travelAgent.name} | Contact: {travelAgent.email} | Available for Booking? {travelAgent.available ? '✅' : '❌'}
                 {reviews}
-                <button onClick={() => history.push(`/travelagents/${id}/reviews/new`)}>Booked with me before? Leave a review.</button>
             </div>
+            <br/><br/>
+            <button onClick={() => history.push(`/travelagents/${id}/reviews/new`)}>Booked with me before? Leave a review.</button>
         </div>
     );
 }

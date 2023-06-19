@@ -21,7 +21,7 @@ function DisplayTravelAgents() {
         return (
         <div>
             <div className="text">
-                Meet our Agents
+                <h3>Meet our Agents</h3>
                 {travelAgents.length > 0 ? travelAgents.map(travelAgent => {
                     return (
                         <TravelAgent key={travelAgent.id} travelAgent={travelAgent}/>

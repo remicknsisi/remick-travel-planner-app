@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import { UserProvider } from "./context/UserProvider.js";
 import Nav from "./components/Nav.js";
 import Home from "./components/Home.js";
@@ -13,12 +13,14 @@ import TripDetails from "./components/TripDetails.js";
 import UserDetails from "./components/UserDetails.js";
 
 function App() {
+  const history = useHistory()
+
 
   return (
     <div className="App">
       <UserProvider>
       <header className="App-header">
-        <h1>Vacation Planner</h1>
+        <h1 onClick={() => history.push('/')}>Vacation Planner</h1>
         <Nav />
         <Switch>
           <Route exact path="/login">
