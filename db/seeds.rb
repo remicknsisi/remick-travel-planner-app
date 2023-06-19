@@ -15,7 +15,8 @@ end
 
 100.times do
     Review.create(
-        user_id: rand(1..User.count),
+        # user_id: rand(1..User.count),
+        user_id: 1,
         travel_agent_id: rand(1..25),
         rating: rand(1..5),
         comment: Faker::Lorem.sentences(number: 1),
