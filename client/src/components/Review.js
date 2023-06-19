@@ -30,8 +30,7 @@ function Review({ review, onDelete }) {
             <div className="review">
                 {comment} | Rating: {'⭐'.repeat(rating)}
                 <br/>
-                Posted by: {user.name}
-                <button onClick={() => onDelete()}>Delete</button>
+                Posted by: {user.name} |  <button onClick={() => onDelete()}>Delete</button>
                 <p className="error-message">{error}</p>
             </div>
         </div>

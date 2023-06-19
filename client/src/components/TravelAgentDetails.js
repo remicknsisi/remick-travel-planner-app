@@ -37,7 +37,11 @@ function TravelAgentDetails() {
                 <br/>
             </div>
             <br/><br/>
-            <div className="reviews">
+            <div className="container">
+                <h3>My Packages</h3>
+            </div>
+            <br/>
+            <div className="container">
             <h3>Reviews</h3>
             {reviews}
             </div>

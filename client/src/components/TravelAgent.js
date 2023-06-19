@@ -5,8 +5,6 @@ function TravelAgent({ travelAgent }) {
     const {available, name, email, id, image} = travelAgent
     const history = useHistory()
 
-    console.log(travelAgent.email)
-
     return (
         <div className="card-container">
             <div className="agent-card">
@@ -14,11 +12,11 @@ function TravelAgent({ travelAgent }) {
                 <div className="agent-details">
                 <br/>
                 Name: {name}
-                <br/>
+                <br/><br/>
                 Contact: {email}
-                <br/>
+                <br/><br/>
                 Available for Booking? {available ? '✅' : '❌'}
-                <br/>
+                <br/><br/>
                 <button className="button" onClick={() => history.push(`/travelagents/${id}`)}>Learn More</button>
                 </div>
             </div>
