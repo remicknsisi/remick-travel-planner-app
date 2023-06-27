@@ -134,6 +134,15 @@ img {
   margin: auto
 }
 
+.profile-form-container {
+  border: 5px solid #3c3836;
+  color: #3c3836;
+  background-color: #458588;
+  padding: 10px;
+  width:fit-content;
+  margin: auto
+}
+
 .form {
   text-align: left;
   padding: 5px;

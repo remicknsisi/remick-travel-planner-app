@@ -47,7 +47,7 @@ function EditProfileForm () {
 
     if (currentUser) {
     return (
-        <div className="text">
+        <div className="profile-form-container">
             <h2>Edit Profile: </h2>
             <form onSubmit={handleEditProfile} className="form">
                 <label>Edit Full Name: </label>
@@ -58,7 +58,7 @@ function EditProfileForm () {
                 <br/>
                 <label>Edit Image URL: </label>
                 <input className="form-input" type="text" onChange={(e) => setNewImage(e.target.value)} value={newImage} placeholder="Image URL" />
-                <br/>
+                <br/><br/>
                 <button type="submit">Finish Editing Profile ✏️ </button>
                 <p className="error-message">{errorsList}</p>
             </form>

@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
 
     def create
         review = @user.reviews.create(review_params)
+        binding.pry
         if review.valid?
             render json: review, status: :created
         else
