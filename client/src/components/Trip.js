@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Activity from "./Activity";
 
 function Trip({ trip }) {
     const [location, setLocation] = useState('')
     const [hotel, setHotel] = useState('')
-    const [activities, setActivities] = useState([])
-
-    console.log(trip)
 
     useEffect(() => {
         fetch(`/locations/${trip.location_id}`)
@@ -27,14 +25,15 @@ function Trip({ trip }) {
             }})
     }, [])
 
-    console.log(hotel)
+    const activities = trip.activities.map(a => <Activity key={a.id} activity={a}/>)
 
     return (
         <div>
             <img className="city" src={location.image}/><img className="city" src={hotel.image}/>
             <p>Location: {location.city}, {location.country}</p>
             <p>Hotel: {hotel.name} | {hotel.website}</p>
-            <p>Itinerary: {activities}</p>
+            <p>Itinerary: </p>
+                {activities}
             <button>Book this Trip!</button>
         </div>
     );
