@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import Review from "./Review";
+import Trip from "./Trip";
 
 function TravelAgentDetails() {
     const [travelAgent, setTravelAgent] = useState({
-        reviews: []
+        reviews: [],
+        trips: []
     })
     const { id } = useParams()
     const history = useHistory()
@@ -22,6 +24,7 @@ function TravelAgentDetails() {
     }
 
     const reviews = travelAgent.reviews.map(review => <Review key={review.id} review={review} onDelete={handleDeleteReview}/>)
+    const trips = travelAgent.trips.map(trip => <Trip key={trip.id} trip={trip}/>)
 
     return (
         <div>
@@ -39,11 +42,12 @@ function TravelAgentDetails() {
             <br/><br/>
             <div className="container">
                 <h3>My Packages</h3>
+                    {trips}
             </div>
             <br/>
             <div className="container">
             <h3>Reviews</h3>
-            {reviews}
+                {reviews}
             </div>
             <br/>
             <button onClick={() => history.push(`/travelagents/${id}/reviews/new`)}>Booked with me before? Leave a review.</button>

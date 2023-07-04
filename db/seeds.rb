@@ -22,6 +22,112 @@ end
     )
 end
 
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 1
+)
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 2
+)
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 3
+)
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 4
+)
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 5
+)
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 6
+)
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 7
+)
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 8
+)
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 9
+)
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 10
+)
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 11
+)
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 12
+)
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 13
+)
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 14
+)
+Trip.create(
+    booked: false,
+    travel_agent_id: rand(1..10),
+    hotel_id: rand(1..5),
+    image: Faker::Avatar.image,
+    location_id: 15
+)
+
 # locations
 Location.create(
     city: "New York City",
@@ -296,112 +402,6 @@ Activity.create(
     name: "Rosenborg Castle",
     age_minimum: "0",
     trip_id: 7
-)
-
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 1
-)
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 2
-)
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 3
-)
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 4
-)
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 5
-)
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 6
-)
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 7
-)
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 8
-)
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 9
-)
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 10
-)
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 11
-)
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 12
-)
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 13
-)
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 14
-)
-Trip.create(
-    booked: false,
-    travel_agent_id: rand(1..10),
-    hotel_id: rand(1..5),
-    image: Faker::Avatar.image,
-    location_id: 15
 )
 
 # Booking.create()
