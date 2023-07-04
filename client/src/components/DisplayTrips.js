@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { UserContext } from "../context/UserProvider.js";
 import Trip from "./Trip";
 
@@ -8,10 +8,9 @@ function DisplayTrips() {
   if (currentUser) {
     return (
     <div>
-        This is the display trips component
+        {currentUser.trips.map(trip => <Trip key={trip.id} isDisplayTrips={true} trip={trip}/>)}
     </div>
-    );
-    } else {
+    )} else {
         return (
             <p>Please login or signup to view this page.</p>
         )

@@ -23,9 +23,6 @@ function TravelAgentDetails() {
         setTravelAgent(agentWithUpdatedReviews)
     }
 
-    const reviews = travelAgent.reviews.map(review => <Review key={review.id} review={review} onDelete={handleDeleteReview}/>)
-    const trips = travelAgent.trips.map(trip => <Trip key={trip.id} trip={trip}/>)
-
     return (
         <div>
             <h2>{travelAgent.name}</h2>
@@ -42,12 +39,14 @@ function TravelAgentDetails() {
             <br/><br/>
             <div className="container">
                 <h3>My Packages</h3>
-                    {trips.length == 0 ? "No trips are currently availble for this agent" : trips}
+                    {travelAgent.id ? travelAgent.trips.map(trip => <Trip key={trip.id} isDisplayTrips={false} trip={trip}/>) : null}
+                    {travelAgent.trips.length == 0 ? "No trips are currently available by the agent" : null}
             </div>
             <br/>
             <div className="container">
             <h3>Reviews</h3>
-                {reviews.length == 0 ? "No reviews have been written for this agent" : reviews}
+            {travelAgent.id ? travelAgent.reviews.map(review => <Review key={review.id} review={review} onDelete={handleDeleteReview}/>) : null}
+            {travelAgent.reviews.length == 0 ? "No reviews have been written for this agent" : null}
             </div>
             <br/>
             <button onClick={() => history.push(`/travelagents/${id}/reviews/new`)}>Booked with me before? Leave a review.</button>

@@ -10,12 +10,13 @@ Rails.application.routes.draw do
   resources :activities, only: [:show]
   resources :bookings, only: [:create]
 
-
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   post "/travel_agents/:id/reviews", to: "reviews#create"
+  # get "/trips/:trip_id/activities", to: "activities#trip_activities"
+  get "/users/:user_id/trips", to: "trips#trips_by_user"
 
   get '*path',
       to: 'fallback#index',

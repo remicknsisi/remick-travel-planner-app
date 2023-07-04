@@ -13,6 +13,15 @@ class TripsController < ApplicationController
             render json: {error: "Trip not found"}, status: :not_found
         end
     end
+
+    def trips_by_user
+        user = User.find_by(id: params[:user_id])
+        if user
+            render json: user.trips, status: :ok
+        else
+            render json: {error: "Could not find trips for this user"}, status: :not_found
+        end
+    end
     # def test
     #     countries = find_country(params[:country])
 
