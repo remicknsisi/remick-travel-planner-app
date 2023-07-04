@@ -8,14 +8,32 @@ function Trip({ trip }) {
     console.log(trip)
 
     useEffect(() => {
-        fetch("/")
-    })
+        fetch(`/locations/${trip.location_id}`)
+        .then(res => {
+            if (res.ok) {
+              res.json()
+              .then(locationData => {
+                setLocation(locationData)})
+            }})
+    }, [])
+
+    useEffect(() => {
+        fetch(`/hotels/${trip.hotel_id}`)
+        .then(res => {
+            if (res.ok) {
+              res.json()
+              .then(hotelData => {
+                setHotel(hotelData)})
+            }})
+    }, [])
+
+    console.log(hotel)
 
     return (
         <div>
-            <img src={trip.image}/>
-            <p>Location: {location}</p>
-            <p>Hotel: {hotel}</p>
+            <img className="city" src={location.image}/><img className="city" src={hotel.image}/>
+            <p>Location: {location.city}, {location.country}</p>
+            <p>Hotel: {hotel.name} | {hotel.website}</p>
             <p>Itinerary: {activities}</p>
             <button>Book this Trip!</button>
         </div>
