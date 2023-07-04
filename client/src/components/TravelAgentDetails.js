@@ -42,12 +42,12 @@ function TravelAgentDetails() {
             <br/><br/>
             <div className="container">
                 <h3>My Packages</h3>
-                    {trips}
+                    {trips.length == 0 ? "No trips are currently availble for this agent" : trips}
             </div>
             <br/>
             <div className="container">
             <h3>Reviews</h3>
-                {reviews}
+                {reviews.length == 0 ? "No reviews have been written for this agent" : reviews}
             </div>
             <br/>
             <button onClick={() => history.push(`/travelagents/${id}/reviews/new`)}>Booked with me before? Leave a review.</button>

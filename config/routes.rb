@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :locations, only: [:show]
   resources :hotels, only: [:show]
   resources :activities, only: [:show]
+  resources :bookings, only: [:create]
+
 
   post "/signup", to: "users#create"
   get "/me", to: "users#show"

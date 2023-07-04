@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { UserContext } from "../context/UserProvider.js";
 import Activity from "./Activity";
+import { useHistory } from "react-router-dom";
 
 function Trip({ trip }) {
     const [location, setLocation] = useState('')
     const [hotel, setHotel] = useState('')
+    const { handleBookTrip, currentUser } = useContext(UserContext)
+    const history = useHistory()
 
     useEffect(() => {
         fetch(`/locations/${trip.location_id}`)
@@ -25,16 +29,37 @@ function Trip({ trip }) {
             }})
     }, [])
 
+    function onBookTrip(){
+        fetch('/bookings', {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                user_id: currentUser.id,
+                trip_id: trip.id
+            })
+        })
+        .then(res => {
+            if(res.ok){
+                res.json().then(newBooking => {
+                    handleBookTrip(newBooking)
+                    history.push(`/trips/${trip.id}`)
+                })
+            }
+        })
+    }
+    //use conditional logic here to point out of this trip is already booked
+
     const activities = trip.activities.map(a => <Activity key={a.id} activity={a}/>)
 
     return (
-        <div>
+        <div className="trip-component">
             <img className="city" src={location.image}/><img className="city" src={hotel.image}/>
             <p>Location: {location.city}, {location.country}</p>
-            <p>Hotel: {hotel.name} | {hotel.website}</p>
+            <p>Hotel: {hotel.name}</p>
             <p>Itinerary: </p>
                 {activities}
-            <button>Book this Trip!</button>
+            <br/>
+            <button onClick={() => onBookTrip()}>Book this Trip!</button>
         </div>
     );
 }

@@ -45,8 +45,12 @@ const UserProvider = ({ children }) => {
     setCurrentUser(updatedUser)
   }
 
+  function handleBookTrip(newBooking){
+    console.log('booking trip!', newBooking)
+  }
+
   return (
-    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview, handleDeleteAccount, handleEditUser, handleDeleteReview}}>
+    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview, handleDeleteAccount, handleEditUser, handleDeleteReview, handleBookTrip}}>
       {children}
     </UserContext.Provider>
   )
