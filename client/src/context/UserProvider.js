@@ -47,11 +47,16 @@ const UserProvider = ({ children }) => {
 
   function handleBookTrip(newBooking){
     // const userUpdatedBookings = currentUser.bookings.filter(review => review.id !== deletedReview.id)
-    // console.log('booking trip!', newBooking)
+    console.log('booking trip!', newBooking)
+  }
+
+  function handleDeleteBooking(deletedTrip){
+    console.log('deleting booking!')
+    // also delete trip
   }
 
   return (
-    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview, handleDeleteAccount, handleEditUser, handleDeleteReview, handleBookTrip}}>
+    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview, handleDeleteAccount, handleEditUser, handleDeleteReview, handleBookTrip, handleDeleteBooking}}>
       {children}
     </UserContext.Provider>
   )

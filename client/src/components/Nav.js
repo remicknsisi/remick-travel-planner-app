@@ -16,7 +16,7 @@ function Nav() {
         })
     }
 
-    return (
+    if(currentUser){return (
         <div className="nav">
             <NavLink to="/" className="nav-link">Home</NavLink>
             <NavLink to="/trips" className="nav-link">My Trips</NavLink>
@@ -25,7 +25,11 @@ function Nav() {
             {currentUser ? <button onClick={() => history.push(`/users/${currentUser.id}`)}>My Account</button> : null}
             {currentUser ? <button onClick={handleLogout}>Logout</button> : <button onClick={() => history.push('/login')}>Login</button>}
         </div>
-        );
+        );} else {
+            return(
+                <div>Loading...</div>
+            )
+        }
 }
 
 export default Nav;

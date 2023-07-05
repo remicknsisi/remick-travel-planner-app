@@ -160,3 +160,11 @@ img {
 .trip-component {
   padding: 10px
 }
+
+.profile-picture {
+  height: 50px;
+}
+
+.profile-picture-account-details {
+  height: 300px
+}

@@ -6,8 +6,10 @@ import { useHistory } from "react-router-dom";
 function Trip({ trip, isDisplayTrips }) {
     const [location, setLocation] = useState('')
     const [hotel, setHotel] = useState('')
-    const { handleBookTrip, currentUser } = useContext(UserContext)
+    const { handleBookTrip, currentUser, handleDeleteBooking } = useContext(UserContext)
     const history = useHistory()
+
+    console.log(trip)
 
     useEffect(() => {
         fetch(`/locations/${trip.location_id}`)
@@ -49,13 +51,29 @@ function Trip({ trip, isDisplayTrips }) {
     }
     //use conditional logic here to point out of this trip is already booked
 
+    function onDeleteBooking(){
+        // need to search by booking id but only have trip to work with...
+        // fetch(`/bookings/${}`, {
+        //     method: 'DELETE',
+        //     headers: {"Content-Type": "application/json"}
+        // })
+        // .then(res => {
+        //     if(res.ok){
+        //         res.json().then(deletedBooking => {
+        //             handleDeleteBooking(deletedBooking)
+        //             history.push('/trips')
+        //         })
+        //     }
+        // })
+    }
+
     return (
         <div className="trip-component">
             {isDisplayTrips ?
             <>
             <img className="city" src={location.image}/><img className="city" src={hotel.image}/>
             <h3>Your trip to: {location.city}, {location.country}</h3>
-            <button onClick={() => history.push(`/trips/${trip.id}`)}>See Trip Details</button>
+            <button onClick={() => history.push(`/trips/${trip.id}`)}>See Trip Details</button><button onClick={() => onDeleteBooking()}>Cancel this Booking</button>
             <br/>
             </> :
             <>

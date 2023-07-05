@@ -7,7 +7,8 @@ function TripDetails() {
     const [trip, setTrip] = useState({
         hotel: '',
         location: '',
-        activities: []
+        activities: [],
+        bookings: []
     })
     const [hotel, setHotel] = useState('')
     const history = useHistory()
@@ -24,7 +25,6 @@ function TripDetails() {
     }, [])
 
     console.log(trip)
-
     //add conditional error handling here
     //do i want to remove the booked attr of the trips object or will i use so a user cant book the same trip twice?
 
@@ -39,6 +39,9 @@ function TripDetails() {
     // }, [])
 
     // console.log(trip, hotel)
+
+
+    // cant get hotel and website to pop up! why is hotel coming in as null but not location?
 
 
     if(trip.id)

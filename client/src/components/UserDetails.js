@@ -15,10 +15,14 @@ function UserDetails() {
     if (currentUser) {
         return (
         <div>
-            <button onClick={() => setIsHidden(!isHidden)}>Edit My Info</button>
+            <h2>Welcome, {currentUser.name}</h2>
+            {currentUser.image.length > 0 ? <img className="profile-picture-account-details" src={currentUser.image}/> : null}
+            <br/><br/>
+            {isHidden ? <button onClick={() => setIsHidden(!isHidden)}>Edit My Info</button> : <button onClick={() => setIsHidden(!isHidden)}>Hide Edit My Info</button>}
             <button onClick={() => {
                 confirmDelete()
                 setIsHidden(true)}}>Delete My Account</button>
+            <br/><br/>
             {isHidden ? null : <EditProfileForm/>}
         </div>
     );

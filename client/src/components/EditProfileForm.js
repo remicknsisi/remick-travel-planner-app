@@ -56,7 +56,7 @@ function EditProfileForm () {
                 <label>Edit Age: </label>
                 <input className="form-input" type="number" onChange={(e) => setNewAge(e.target.value)} value={newAge} placeholder="Age" />
                 <br/>
-                <label>Edit Image URL: </label>
+                <label>Edit Image URL (optional): </label>
                 <input className="form-input" type="text" onChange={(e) => setNewImage(e.target.value)} value={newImage} placeholder="Image URL" />
                 <br/><br/>
                 <button type="submit">Finish Editing Profile ✏️ </button>
