@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Hotel from "./Hotel";
 
 function DisplayHotels() {
     const [hotels, setHotels] = useState([])
@@ -11,7 +12,7 @@ function DisplayHotels() {
 
     return (
         <div>
-            this is a DisplayHotels component for users
+            {hotels.map(h => <Hotel key={h.id} hotel={h}/>)}
         </div>
     );
 }
