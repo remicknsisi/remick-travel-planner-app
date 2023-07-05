@@ -22,6 +22,15 @@ class TripsController < ApplicationController
             render json: {error: "Could not find trips for this user"}, status: :not_found
         end
     end
+
+    def create
+        trip = @user.trips.create(trip_params)
+        if trip.valid?
+            render json: trip, status: :created
+        else
+            render json: { errors: trip.errors.full_messages }, status: :unprocessable_entity
+        end
+    end
     # def test
     #     countries = find_country(params[:country])
 
@@ -31,6 +40,10 @@ class TripsController < ApplicationController
     # end
 
     private
+
+    def trip_params
+        params.permit(:hotel_id, :location_id, :booked, :image)
+    end
     # def request_api(url)
     #     response = Excon.get(
     #     url,

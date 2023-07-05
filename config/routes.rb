@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post "/travel_agents/:id/reviews", to: "reviews#create"
   # get "/trips/:trip_id/activities", to: "activities#trip_activities"
   get "/users/:user_id/trips", to: "trips#trips_by_user"
+  post "/travel_agents/:id/trips/new", to: "trips#create"
 
   get '*path',
       to: 'fallback#index',
