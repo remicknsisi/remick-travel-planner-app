@@ -12,6 +12,8 @@ function UserDetails() {
         }
     }
 
+    console.log(currentUser)
+
     if (currentUser) {
         return (
         <div>
