@@ -9,6 +9,7 @@ function Hotel({ hotel }) {
             <h3>{name}</h3>
             <img className="city" src={image}/>
             <p>{website}</p>
+            {/* make the websites alink in the header */}
         </div>
     );
 }

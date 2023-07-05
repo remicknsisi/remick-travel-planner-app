@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Activity from "./Activity";
 
 function DisplayActivities() {
     const [activities, setActivities] = useState([])
@@ -11,7 +12,7 @@ function DisplayActivities() {
 
     return (
         <div>
-            this is a DisplayActivities component for users
+            {activities.map(a => <Activity key={a.id} activity={a}/>)}
         </div>
     );
 }
