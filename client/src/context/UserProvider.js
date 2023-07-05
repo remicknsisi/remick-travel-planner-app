@@ -55,8 +55,12 @@ const UserProvider = ({ children }) => {
     // also delete trip
   }
 
+  function handleSubmitTrip(newTrip){
+    console.log('creating trip!')
+  }
+
   return (
-    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview, handleDeleteAccount, handleEditUser, handleDeleteReview, handleBookTrip, handleDeleteBooking}}>
+    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview, handleDeleteAccount, handleEditUser, handleDeleteReview, handleBookTrip, handleDeleteBooking, handleSubmitTrip}}>
       {children}
     </UserContext.Provider>
   )

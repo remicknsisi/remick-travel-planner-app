@@ -20,6 +20,7 @@ function Nav() {
         <div className="nav">
             <NavLink to="/" className="nav-link">Home</NavLink>
             <NavLink to="/trips" className="nav-link">My Trips</NavLink>
+            {/* make my trips conditional to a nested restful route for travel agent trips ta/id/trips */}
             {currentUser ? currentUser.is_agent ? <NavLink to="/trips/new" className="nav-link">Plan A Trip</NavLink> : <NavLink to="/inspiration" className="nav-link">Get Inspired</NavLink> : <NavLink to="/trips/new" className="nav-link">Get Inspired</NavLink>}
             {currentUser ? currentUser.is_agent ? <NavLink to="/travelagents" className="nav-link">All Agents</NavLink> : <NavLink to="/travelagents" className="nav-link">Find an Agent</NavLink> : <NavLink to="/travelagents" className="nav-link">Find an Agent</NavLink>}
             {currentUser ? <button onClick={() => history.push(`/users/${currentUser.id}`)}>My Account</button> : null}

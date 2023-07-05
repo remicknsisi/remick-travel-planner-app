@@ -5,6 +5,8 @@ import Trip from "./Trip";
 function DisplayTrips() {
     const { currentUser } = useContext(UserContext)
 
+    // have logic for if no trips, book one!
+
   if (currentUser) {
     return (
     <div>
