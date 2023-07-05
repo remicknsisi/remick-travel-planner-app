@@ -7,4 +7,9 @@ class HotelsController < ApplicationController
             render json: {error: "Hotel could not be found"}, status: :not_found
         end
     end
+
+    def index
+        hotels = Hotel.all
+        render json: hotels, status: :ok
+    end
 end

@@ -7,4 +7,9 @@ class LocationsController < ApplicationController
             render json: {error: "Location could not be found"}, status: :not_found
         end
     end
+
+    def index
+        locations = Location.all
+        render json: locations, status: :ok
+    end
 end

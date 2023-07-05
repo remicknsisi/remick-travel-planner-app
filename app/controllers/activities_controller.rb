@@ -2,6 +2,12 @@ class ActivitiesController < ApplicationController
     def show
         activities = Activity.all
         render json: activities, status: :ok
+        # what is this
+    end
+
+    def index
+        activities = Activity.all
+        render json: activities, status: :ok
     end
 
     def trip_activities

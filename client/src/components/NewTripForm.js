@@ -4,7 +4,7 @@ function NewTripForm() {
 
     return (
         <div>
-            this is a trip form component
+            this is a trip form component for agents
         </div>
     );
 }

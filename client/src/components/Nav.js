@@ -20,7 +20,7 @@ function Nav() {
         <div className="nav">
             <NavLink to="/" className="nav-link">Home</NavLink>
             <NavLink to="/trips" className="nav-link">My Trips</NavLink>
-            {currentUser ? currentUser.is_agent ? <NavLink to="/trips/new" className="nav-link">Plan A Trip</NavLink> : <NavLink to="/trips/new" className="nav-link">Get Inspired</NavLink> : <NavLink to="/trips/new" className="nav-link">Get Inspired</NavLink>}
+            {currentUser ? currentUser.is_agent ? <NavLink to="/trips/new" className="nav-link">Plan A Trip</NavLink> : <NavLink to="/inspiration" className="nav-link">Get Inspired</NavLink> : <NavLink to="/trips/new" className="nav-link">Get Inspired</NavLink>}
             {currentUser ? currentUser.is_agent ? <NavLink to="/travelagents" className="nav-link">All Agents</NavLink> : <NavLink to="/travelagents" className="nav-link">Find an Agent</NavLink> : <NavLink to="/travelagents" className="nav-link">Find an Agent</NavLink>}
             {currentUser ? <button onClick={() => history.push(`/users/${currentUser.id}`)}>My Account</button> : null}
             {currentUser ? <button onClick={handleLogout}>Logout</button> : <button onClick={() => history.push('/login')}>Login</button>}

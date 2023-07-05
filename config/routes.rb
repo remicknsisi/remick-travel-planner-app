@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   resources :travel_agents, only: [:index, :show]
   resources :users, only: [:show, :create, :update, :destroy]
   resources :reviews, only: [:destroy]
-  resources :locations, only: [:show]
-  resources :hotels, only: [:show]
-  resources :activities, only: [:show]
+  resources :locations, only: [:show, :index]
+  resources :hotels, only: [:show, :index]
+  resources :activities, only: [:show, :index]
   resources :bookings, only: [:create]
 
   post "/signup", to: "users#create"
