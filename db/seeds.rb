@@ -2,7 +2,8 @@ require 'faker'
 
 puts "🌱 Seeding data..."
 
-User.create(name: "Sisi Remick", age: 25, email: "remicknsisi@gmail.com", image: "", password: "password", password_confirmation: "password", username: "sremick")
+User.create(name: "Sisi Remick", age: 25, email: "remicknsisi@gmail.com", image: "https://scontent-lga3-2.xx.fbcdn.net/v/t39.30808-6/317816558_6152500471447482_8780828282732764055_n.jpg?stp=cp6_dst-jpg&_nc_cat=105&cb=99be929b-3346023f&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=qpZWuA7rEbcAX9vVScx&_nc_ht=scontent-lga3-2.xx&oh=00_AfBomdujQM45aIRL3EAQreev8kaLMkZXT7imCwMDKgC5ZA&oe=64AA045D", password: "password", password_confirmation: "password", username: "sremick", is_agent: false)
+User.create(name: "Agent Sisi Remick", age: 25, email: "remicknsisi@gmail.com", image: "https://scontent-lga3-2.xx.fbcdn.net/v/t39.30808-6/317816558_6152500471447482_8780828282732764055_n.jpg?stp=cp6_dst-jpg&_nc_cat=105&cb=99be929b-3346023f&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=qpZWuA7rEbcAX9vVScx&_nc_ht=scontent-lga3-2.xx&oh=00_AfBomdujQM45aIRL3EAQreev8kaLMkZXT7imCwMDKgC5ZA&oe=64AA045D", password: "password", password_confirmation: "password", username: "agentsremick", is_agent: true)
 
 10.times do
     TravelAgent.create(
