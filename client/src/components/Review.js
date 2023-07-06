@@ -15,6 +15,7 @@ function Review({ review, onDelete }) {
                 res.json()
                 .then(deletedReview => {
                     handleDeleteReview(deletedReview)
+                    // is this next line neessary
                     onDelete(deletedReview)})
             } else {
                 res.json()
@@ -24,6 +25,7 @@ function Review({ review, onDelete }) {
                 })
         }})
     }
+    //delete is causing some issues ... 
 
     return (
         <div>

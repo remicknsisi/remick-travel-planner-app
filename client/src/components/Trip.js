@@ -42,6 +42,7 @@ function Trip({ trip, isDisplayTrips }) {
     }, [])
 
     function onBookTrip(){
+    if (trip.travel_agent.available){
         fetch('/bookings', {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
@@ -61,7 +62,9 @@ function Trip({ trip, isDisplayTrips }) {
                     setErrorsList(errorLis)
                 })
             }
-        })
+        })} else {
+            setErrorsList(<p>This agent is currently unavailable for booking.</p>)
+        }
     }
     //use conditional logic here to point out of this trip is already booked -- make it a validation
 

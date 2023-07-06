@@ -20,7 +20,6 @@ const UserProvider = ({ children }) => {
   const signup = (newUser) => {setCurrentUser(newUser)}
 
   function handleSubmitReview (newReview){
-    // const userUpdatedReviews = [...currentUser.reviews, newReview]
     const updatedUser = {...currentUser, reviews: [...currentUser.reviews, newReview]}
     setCurrentUser(updatedUser)
   }
