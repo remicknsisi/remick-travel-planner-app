@@ -45,10 +45,11 @@ const UserProvider = ({ children }) => {
     setCurrentUser(updatedUser)
   }
 
-  function handleBookTrip(newBooking){
+  function handleBookTrip(newBooking, trip){
     const userUpdatedBookings = [...currentUser.bookings, newBooking]
-    const userWithUpdatedBookings = {...currentUser, bookings: userUpdatedBookings}
-    setCurrentUser(userWithUpdatedBookings)
+    const userUpdatedTrips = [...currentUser.trips, trip]
+    const userWithUpdatedBookingsAndTrips = {...currentUser, bookings: userUpdatedBookings, trips: userUpdatedTrips}
+    setCurrentUser(userWithUpdatedBookingsAndTrips)
   }
 
   function handleDeleteBooking(deletedBooking, trip){

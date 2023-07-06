@@ -52,7 +52,7 @@ function Trip({ trip, isDisplayTrips }) {
         .then(res => {
             if(res.ok){
                 res.json().then(newBooking => {
-                    handleBookTrip(newBooking)
+                    handleBookTrip(newBooking, trip)
                     history.push('/trips')
                 })
             } else {
@@ -63,7 +63,6 @@ function Trip({ trip, isDisplayTrips }) {
             }
         })
     }
-    //also add to trips for user
     //use conditional logic here to point out of this trip is already booked -- make it a validation
 
     function onDeleteBooking(){
@@ -81,6 +80,7 @@ function Trip({ trip, isDisplayTrips }) {
             }
         })
     }
+    //add conditional if error here
 
     return (
         <div className="trip-component">
