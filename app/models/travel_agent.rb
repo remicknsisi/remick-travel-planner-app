@@ -4,9 +4,9 @@ class TravelAgent < ApplicationRecord
     has_many :users, through: :reviews
 
     def rating
-        ratings = self.reviews.map {|review| review.rating}
+        ratings = self.reviews.map {|review| review.rating.to_i}
         if ratings.length > 0
-            rating = ratings.sum / ratings.size
+            averageRating = ratings.sum / ratings.size
         end
     end
 

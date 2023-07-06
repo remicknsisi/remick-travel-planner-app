@@ -49,7 +49,6 @@ function NewReviewForm () {
                     history.push(`/travelagents/${id}`)})
             } else {
                 res.json().then((message) => {
-                    console.log(message)
                     const errorLis = message.errors.map(error => <li key={error}>{error}</li>)
                     setErrorsList(errorLis)
                 })
