@@ -1,15 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Hotel({ hotel }) {
-
     const { name, image, website } = hotel
 
     return (
         <div>
-            <h3>{name}</h3>
+            <h3><Link to={{ pathname: `${website}` }} target="_blank">{name}</Link></h3>
             <img className="city" src={image}/>
-            <p>{website}</p>
-            {/* make the websites alink in the header */}
         </div>
     );
 }

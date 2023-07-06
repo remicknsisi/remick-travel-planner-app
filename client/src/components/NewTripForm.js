@@ -11,6 +11,9 @@ function NewTripForm() {
     const { id } = useParams()
     const history = useHistory()
 
+    // need to set up url to be consistent with route and then maybe i can use params in my requests
+    // need to fetch locations an dhotels so we can display them here
+
     function onSubmitTrip(e){
         e.preventDefault()
 
@@ -18,8 +21,8 @@ function NewTripForm() {
             booked: false,
             hotel_id: hotelId,
             location_id: locationId,
-            image: 
-            // make image hte image of the location
+            image: image
+            // or shoul di auto set image to new location photo
         }
 
         fetch(`/travel_agents/${currentUser.id}/trips`, {
@@ -64,11 +67,15 @@ function NewTripForm() {
                     {locationOptions}
                 </select>
                 <br/><br/>
+            <label>Image of Destination: </label>
+                <input className="form-input" type="text" value={image} onChange={e => setImage(e.target.value)}></input>
             <button>Submit</button>
             <p className="error-message">{errorsList}</p>
             </form>
         </div>
     );
 }
+
+// do i need options for creating new locations hotels and activities?
 
 export default NewTripForm;
