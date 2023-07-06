@@ -46,8 +46,9 @@ const UserProvider = ({ children }) => {
   }
 
   function handleBookTrip(newBooking){
-    // const userUpdatedBookings = currentUser.bookings.filter(review => review.id !== deletedReview.id)
-    console.log('booking trip!', newBooking)
+    const userUpdatedBookings = [...currentUser.bookings, newBooking]
+    const userWithUpdatedBookings = {...currentUser, bookings: userUpdatedBookings}
+    setCurrentUser(userWithUpdatedBookings)
   }
 
   function handleDeleteBooking(deletedTrip){

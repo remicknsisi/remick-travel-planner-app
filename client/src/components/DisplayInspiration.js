@@ -10,6 +10,7 @@ function DisplayInspiration() {
 
     return (
         <div>
+            <h1>Where will you go next?</h1>
             <button onClick={() => {
                 setDestinationsAreHidden(!destinationsAreHidden)
                 setHotelsAreHidden(true)

@@ -6,10 +6,10 @@ import { useHistory } from "react-router-dom";
 function Trip({ trip, isDisplayTrips }) {
     const [location, setLocation] = useState('')
     const [hotel, setHotel] = useState('')
+    const [bookings, setBookings] = useState([])
+    const [errorsList, setErrorsList] = useState([])
     const { handleBookTrip, currentUser, handleDeleteBooking } = useContext(UserContext)
     const history = useHistory()
-
-    console.log(trip)
 
     useEffect(() => {
         fetch(`/locations/${trip.location_id}`)
@@ -31,12 +31,21 @@ function Trip({ trip, isDisplayTrips }) {
             }})
     }, [])
 
+    useEffect(() => {
+        fetch(`/bookings`)
+        .then(res => {
+            if (res.ok) {
+              res.json()
+              .then(bookingData => {
+                setBookings(bookingData)})
+            }})
+    }, [])
+
     function onBookTrip(){
         fetch('/bookings', {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
-                user_id: currentUser.id,
                 trip_id: trip.id
             })
         })
@@ -46,25 +55,30 @@ function Trip({ trip, isDisplayTrips }) {
                     handleBookTrip(newBooking)
                     history.push('/trips')
                 })
+            } else {
+                res.json().then((message) => {
+                    const errorLis = message.errors.map(error => <li key={error}>{error}</li>)
+                    setErrorsList(errorLis)
+                })
             }
         })
     }
-    //use conditional logic here to point out of this trip is already booked
+    //use conditional logic here to point out of this trip is already booked -- make it a validation
 
     function onDeleteBooking(){
-        // need to search by booking id but only have trip to work with...
-        // fetch(`/bookings/${}`, {
-        //     method: 'DELETE',
-        //     headers: {"Content-Type": "application/json"}
-        // })
-        // .then(res => {
-        //     if(res.ok){
-        //         res.json().then(deletedBooking => {
-        //             handleDeleteBooking(deletedBooking)
-        //             history.push('/trips')
-        //         })
-        //     }
-        // })
+        const deletedBooking = bookings.find(b => b.trip_id == trip.id)
+        fetch(`/bookings/${deletedBooking.id}`, {
+            method: 'DELETE',
+            headers: {"Content-Type": "application/json"}
+        })
+        .then(res => {
+            if(res.ok){
+                res.json().then(deletedBooking => {
+                    handleDeleteBooking(deletedBooking)
+                    history.push('/trips')
+                })
+            }
+        })
     }
 
     return (
@@ -84,6 +98,7 @@ function Trip({ trip, isDisplayTrips }) {
                 {trip.activities.map(a => <Activity key={a.id} activity={a}/>)}
             <br/>
             <button onClick={() => onBookTrip()}>Book this Trip!</button>
+            <p className="error-message">{errorsList}</p>
             </>}
         </div>
     );

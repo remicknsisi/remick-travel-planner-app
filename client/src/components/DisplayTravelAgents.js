@@ -30,7 +30,7 @@ function DisplayTravelAgents() {
         return (
         <div>
             <div className="text">
-                <h3>😊 Meet our Agents 😊</h3>
+                <h1>Meet our Agents</h1>
                 <Filter onCheck={handleCheck} isChecked={isChecked}/>
                 {travelAgents.length > 0 ? agentsToDisplay.map(travelAgent => {
                     return (

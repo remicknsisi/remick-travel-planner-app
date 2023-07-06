@@ -5,12 +5,11 @@ import Trip from "./Trip";
 function DisplayTrips() {
     const { currentUser } = useContext(UserContext)
 
-    // have logic for if no trips, book one!
-
   if (currentUser) {
     return (
     <div>
-        {currentUser.trips.map(trip => <Trip key={trip.id} isDisplayTrips={true} trip={trip}/>)}
+        <h1>Your Booked Trips</h1>
+        {currentUser.trips.length > 0 ? currentUser.trips.map(trip => <Trip key={trip.id} isDisplayTrips={true} trip={trip}/>) : "**You have no booked trips!**"}
     </div>
     )} else {
         return (

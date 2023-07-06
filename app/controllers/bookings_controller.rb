@@ -1,6 +1,12 @@
 class BookingsController < ApplicationController
+
+    def index
+        bookings = Booking.all
+        render json: bookings, status: :ok
+    end
+
     def create
-        booking = Booking.create!(booking_params)
+        booking = @user.bookings.create!(booking_params)
         if booking.valid?
             render json: booking, status: :created
         else
@@ -8,9 +14,19 @@ class BookingsController < ApplicationController
         end
     end
 
+    def destroy
+        booking = Booking.find_by(id: params[:id])
+        if @user && @user.id == booking.user_id
+            booking.destroy
+            render json: booking, status: :ok
+        else
+            render json: { error: "You can only delete your own bookings." }, status: :unauthorized
+        end
+    end
+
     private
 
     def booking_params
-        params.permit(:user_id, :trip_id)
+        params.permit(:trip_id)
     end
 end
