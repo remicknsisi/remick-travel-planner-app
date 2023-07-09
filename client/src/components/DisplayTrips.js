@@ -8,8 +8,17 @@ function DisplayTrips() {
   if (currentUser) {
     return (
     <div>
+        { currentUser.is_agent ?
+        <>
+        <h1>Currently Offered Trips</h1>
+        {currentUser.trips.length > 0 ? currentUser.trips.map(trip => <Trip key={trip.id} isDisplayTrips={true} trip={trip}/>) : "**You are not currently offering any trips!**"}
+        </>
+        :
+        <>
         <h1>Your Booked Trips</h1>
         {currentUser.trips.length > 0 ? currentUser.trips.map(trip => <Trip key={trip.id} isDisplayTrips={true} trip={trip}/>) : "**You have no booked trips!**"}
+        </>
+        }
     </div>
     )} else {
         return (

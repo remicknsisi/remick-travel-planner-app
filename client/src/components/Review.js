@@ -4,7 +4,7 @@ import { UserContext } from "../context/UserProvider.js";
 function Review({ review, onDelete }) {
     const [error, setError] = useState('')
     const {comment, rating, user, id} = review
-    const { handleDeleteReview } = useContext(UserContext)
+    const { currentUser, handleDeleteReview } = useContext(UserContext)
 
     function onDelete(){
         fetch(`/reviews/${id}`, {
@@ -27,16 +27,20 @@ function Review({ review, onDelete }) {
     }
     //delete is causing some issues ... 
 
-    return (
-        <div>
-            <div className="review">
-                {comment} | Rating: {'⭐'.repeat(rating)}
-                <br/>
-                Posted by: {user.name} |  <button onClick={() => onDelete()}>Delete</button>
-                <p className="error-message">{error}</p>
+    if (currentUser){
+        return (
+            <div>
+                <div className="review">
+                    {comment} | Rating: {'⭐'.repeat(rating)}
+                    <br/>
+                    Posted by: {user.name} |  <button onClick={() => onDelete()}>Delete</button>
+                    <p className="error-message">{error}</p>
+                </div>
             </div>
-        </div>
-    );
+        )
+    } else {
+        <h1>Please Log In or Sign Up.</h1>
+    }
 }
 
 export default Review;
