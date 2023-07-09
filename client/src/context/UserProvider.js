@@ -20,7 +20,14 @@ const UserProvider = ({ children }) => {
   const signup = (newUser) => {setCurrentUser(newUser)}
 
   function handleSubmitReview (newReview){
-    const updatedUser = {...currentUser, reviews: [...currentUser.reviews, newReview]}
+    const userUpdatedReviews = [...currentUser.reviews, newReview]
+    const updatedUser = {...currentUser, reviews: userUpdatedReviews}
+    setCurrentUser(updatedUser)
+  }
+
+  function handleDeleteReview(deletedReview){
+    const userUpdatedReviews = currentUser.reviews.filter(review => review.id !== deletedReview.id)
+    const updatedUser = {...currentUser, reviews: userUpdatedReviews}
     setCurrentUser(updatedUser)
   }
 
@@ -35,12 +42,6 @@ const UserProvider = ({ children }) => {
   }
 
   function handleEditUser(updatedUser){
-    setCurrentUser(updatedUser)
-  }
-
-  function handleDeleteReview(deletedReview){
-    const userUpdatedReviews = currentUser.reviews.filter(review => review.id !== deletedReview.id)
-    const updatedUser = {...currentUser, reviews: userUpdatedReviews}
     setCurrentUser(updatedUser)
   }
 

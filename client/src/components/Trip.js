@@ -42,6 +42,8 @@ function Trip({ trip, isDisplayTrips }) {
     }, [])
 
     function onBookTrip(){
+    // console.log(currentUser.trips.includes(trip))
+
     if (trip.travel_agent.available){
         fetch('/bookings', {
             method: 'POST',
@@ -78,7 +80,6 @@ function Trip({ trip, isDisplayTrips }) {
             if(res.ok){
                 res.json().then(deletedBooking => {
                     handleDeleteBooking(deletedBooking, trip)
-                    history.push('/trips')
                 })
             }
         })

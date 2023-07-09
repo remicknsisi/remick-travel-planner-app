@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Activity from "./Activity";
 
 function TripDetails() {
@@ -10,8 +10,6 @@ function TripDetails() {
         activities: [],
         bookings: []
     })
-    const [hotel, setHotel] = useState('')
-    const history = useHistory()
 
     useEffect(() => {
         fetch(`/trips/${id}`)
@@ -23,26 +21,10 @@ function TripDetails() {
             }
         })
     }, [])
-
-    console.log(trip)
     //add conditional error handling here
     //do i want to remove the booked attr of the trips object or will i use so a user cant book the same trip twice?
 
-    // useEffect(() => {
-    //     fetch(`/hotels/${trip.hotel_id}`)
-    //     .then(res => {
-    //         if (res.ok) {
-    //           res.json()
-    //           .then(hotelData => {
-    //             setHotel(hotelData)})
-    //         }})
-    // }, [])
-
-    // console.log(trip, hotel)
-
-
-    // cant get hotel and website to pop up! why is hotel coming in as null but not location?
-
+console.log(trip)
 
     if(trip.id)
         {return (
@@ -50,7 +32,7 @@ function TripDetails() {
             <h2>Your Visit to {trip.location.country}</h2>
             <img className="city" src={trip.location.image}/>
             <p>Location: {trip.location.city}, {trip.location.country}</p>
-            <p>Hotel: {hotel.name} | Website: {hotel.website}</p>
+            <p>Hotel: {trip.hotel.name} | Website: {trip.hotel.website}</p>
             <p>Itinerary: </p>
                 {trip.activities.map(a => <Activity key={a.id} activity={a}/>)}
             <br/>

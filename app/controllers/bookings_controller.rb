@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
 
     def destroy
         booking = Booking.find_by(id: params[:id])
+        # byebug
         if @user && @user.id == booking.user_id
             booking.destroy
             render json: booking, status: :ok

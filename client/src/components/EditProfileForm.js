@@ -35,7 +35,8 @@ function EditProfileForm () {
             if(res.ok){
                 res.json().then((updatedUser) => {
                     handleEditUser(updatedUser)
-                    history.push('/')})
+                    history.push(`/users/${currentUser.id}`)})
+                    // history.push('/')})
             } else {
                 res.json().then((message) => {
                     const errorLis = message.errors.map(error => <li key={error}>{error}</li>)

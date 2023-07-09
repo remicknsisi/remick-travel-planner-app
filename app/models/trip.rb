@@ -1,11 +1,12 @@
 class Trip < ApplicationRecord
     has_many :activities
-    has_one :hotel
+    belongs_to :hotel
     has_one :location
     belongs_to :travel_agent
     has_many :bookings
     has_many :users, through: :bookings
 
-    validates :location, presence: true
-    validates :hotel, presence: true
+    # validates :location, presence: true
+    # validates :hotel, presence: true
+    # messes with the seeding...
 end
