@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { UserContext } from "../context/UserProvider.js";
 
 function NewTripForm() {
@@ -8,11 +8,23 @@ function NewTripForm() {
     const [image, setImage] = useState('')
     const [errorsList, setErrorsList] = useState([])
     const { handleSubmitTrip, currentUser } = useContext(UserContext)
-    const { id } = useParams()
     const history = useHistory()
 
-    // need to set up url to be consistent with route and then maybe i can use params in my requests
-    // need to fetch locations an dhotels so we can display them here
+    const [locations, setLocations] = useState([])
+
+    useEffect(() => {
+        fetch('/locations')
+        .then(res => res.json())
+        .then(locationData => setLocations(locationData))
+    }, [])
+
+    const [hotels, setHotels] = useState([])
+
+    useEffect(() => {
+        fetch('/hotels')
+        .then(res => res.json())
+        .then(hotelData => setHotels(hotelData))
+    }, [])
 
     function onSubmitTrip(e){
         e.preventDefault()
@@ -21,9 +33,11 @@ function NewTripForm() {
             booked: false,
             hotel_id: hotelId,
             location_id: locationId,
-            image: image
+            // image: location.image
             // or shoul di auto set image to new location photo
         }
+
+        console.log(newTrip)
 
         fetch(`/travel_agents/${currentUser.id}/trips`, {
             method: 'POST',
@@ -50,11 +64,12 @@ function NewTripForm() {
     }
 
     const hotelOptions = hotels.map(h => <option value={h.id} key={h.id}>{h.name}</option>)
-    const locationOptions = locations.map(l => <option value={l.id} key={l.id}>{l.city}, {l.country}</option>)
+    const locationOptions = locations.map(l => <option value={l} key={l.id}>{l.city}, {l.country}</option>)
 
     return (
         <div className="review-form-container">
             <form className="form" onSubmit={onSubmitTrip}>
+            <h2>Plan a New Trip: </h2>
             <label>Hotel: </label>
                 <select className="form-input" type="text" value={hotelId} onChange={e => setHotelId(1*e.target.value)}>
                     <option>Select a Hotel</option>
@@ -69,6 +84,7 @@ function NewTripForm() {
                 <br/><br/>
             <label>Image of Destination: </label>
                 <input className="form-input" type="text" value={image} onChange={e => setImage(e.target.value)}></input>
+            <br/><br/>
             <button>Submit</button>
             <p className="error-message">{errorsList}</p>
             </form>

@@ -8,5 +8,5 @@ class Trip < ApplicationRecord
 
     # validates :location, presence: true
     # validates :hotel, presence: true
-    # messes with the seeding...
+    # messes with the seeding... need to seed and then un-comment this out i htink
 end

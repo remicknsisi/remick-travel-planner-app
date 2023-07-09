@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 
 function Trip({ trip, isDisplayTrips }) {
     const [location, setLocation] = useState('')
+    const [error, setError] = useState('')
     const [hotel, setHotel] = useState('')
     const [bookings, setBookings] = useState([])
     const [errorsList, setErrorsList] = useState([])
@@ -42,8 +43,6 @@ function Trip({ trip, isDisplayTrips }) {
     }, [])
 
     function onBookTrip(){
-    // console.log(currentUser.trips.includes(trip))
-
     if (trip.travel_agent.available){
         fetch('/bookings', {
             method: 'POST',
@@ -81,10 +80,15 @@ function Trip({ trip, isDisplayTrips }) {
                 res.json().then(deletedBooking => {
                     handleDeleteBooking(deletedBooking, trip)
                 })
-            }
+            } else {
+                res.json()
+                .then(message => {
+                    const errorMessage = message.error
+                    setError(errorMessage)
+                })
+        }
         })
     }
-    //add conditional if error here
 
     return (
         <div className="trip-component">
@@ -93,6 +97,7 @@ function Trip({ trip, isDisplayTrips }) {
             <img className="city" src={location.image}/><img className="city" src={hotel.image}/>
             <h3>Your trip to: {location.city}, {location.country}</h3>
             <button onClick={() => history.push(`/trips/${trip.id}`)}>See Trip Details</button><button onClick={() => onDeleteBooking()}>Cancel this Booking</button>
+            <p className="error-message">{error}</p>
             <br/>
             </> :
             <>
@@ -103,7 +108,7 @@ function Trip({ trip, isDisplayTrips }) {
                 {trip.activities.map(a => <Activity key={a.id} activity={a}/>)}
             <br/>
             <button onClick={() => onBookTrip()}>Book this Trip!</button>
-            <p className="error-message">{errorsList}</p>
+            <p className="error-message">{error}</p>
             </>}
         </div>
     );

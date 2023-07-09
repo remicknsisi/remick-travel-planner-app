@@ -41,11 +41,11 @@ function App() {
           <Route exact path="/trips">
             <DisplayTrips/>
           </Route>
-          <Route exact path="/trips/:id">
-            <TripDetails/>
-          </Route>
           <Route exact path="/trips/new">
             <NewTripForm/>
+          </Route>
+          <Route exact path="/trips/:id">
+            <TripDetails/>
           </Route>
           <Route exact path="/inspiration">
             <DisplayInspiration/>

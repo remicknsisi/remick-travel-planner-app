@@ -4,6 +4,7 @@ import Activity from "./Activity";
 
 function TripDetails() {
     const { id } = useParams()
+    const [error, setError] = useState('')
     const [trip, setTrip] = useState({
         hotel: '',
         location: '',
@@ -18,16 +19,22 @@ function TripDetails() {
                 res.json().then(trip => {
                     setTrip(trip)
                 })
+            } else {
+                res.json()
+                .then(message => {
+                    const errorMessage = message.error
+                    setError(errorMessage)
+                })
             }
         })
     }, [])
-    //add conditional error handling here
     //do i want to remove the booked attr of the trips object or will i use so a user cant book the same trip twice?
 
     if(trip.id)
         {return (
         <div>
             <h2>Your Visit to {trip.location.country}</h2>
+            <p className="error-message">{error}</p>
             <img className="city" src={trip.location.image}/>
             <p>Location: {trip.location.city}, {trip.location.country}</p>
             <p>Hotel: {trip.hotel.name} | Website: {trip.hotel.website}</p>

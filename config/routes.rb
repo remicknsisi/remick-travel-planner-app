@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  # get '/test/:country', to: 'trips#test'
-
-  resources :trips, only: [:index, :show]
+  resources :trips, only: [:index, :show, :create]
   resources :travel_agents, only: [:index, :show]
   resources :users, only: [:show, :create, :update, :destroy]
   resources :reviews, only: [:destroy]
@@ -15,9 +13,6 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   post "/travel_agents/:id/reviews", to: "reviews#create"
-  # get "/trips/:trip_id/activities", to: "activities#trip_activities"
-  get "/users/:user_id/trips", to: "trips#trips_by_user"
-  post "/travel_agents/:id/trips/new", to: "trips#create"
 
   get '*path',
       to: 'fallback#index',
