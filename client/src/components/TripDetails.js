@@ -24,8 +24,6 @@ function TripDetails() {
     //add conditional error handling here
     //do i want to remove the booked attr of the trips object or will i use so a user cant book the same trip twice?
 
-console.log(trip)
-
     if(trip.id)
         {return (
         <div>
