@@ -1,5 +1,4 @@
 class TravelAgentsController < ApplicationController
-
     def index
         agents = TravelAgent.all
         render json: agents, status: :ok

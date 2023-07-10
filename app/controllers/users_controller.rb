@@ -12,7 +12,6 @@ class UsersController < ApplicationController
 
     def create
         user = User.create!(user_params)
-        # byebug
         session[:user_id] = user.id
         render json: user, status: :created
     end
@@ -44,4 +43,5 @@ class UsersController < ApplicationController
     def render_unprocessable_entity_response(invalid)
         render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
     end
+    
 end
