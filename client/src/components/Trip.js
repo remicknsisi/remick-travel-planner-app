@@ -64,7 +64,7 @@ function Trip({ trip, isDisplayTrips }) {
                 })
             }
         })} else {
-            setErrorsList(<p>This agent is currently unavailable for booking.</p>)
+            setError('This agent is currently unavailable for booking.')
         }
     }
     //use conditional logic here to point out of this trip is already booked -- make it a validation
@@ -108,6 +108,7 @@ function Trip({ trip, isDisplayTrips }) {
                 {trip.activities.map(a => <Activity key={a.id} activity={a}/>)}
             <br/>
             <button onClick={() => onBookTrip()}>Book this Trip!</button>
+            <p className="error-message">{errorsList}</p>
             <p className="error-message">{error}</p>
             </>}
         </div>

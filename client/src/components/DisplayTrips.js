@@ -5,8 +5,6 @@ import Trip from "./Trip";
 function DisplayTrips() {
     const { currentUser } = useContext(UserContext)
 
-    console.log(currentUser)
-
   if (currentUser) {
     return (
     <div>
