@@ -1,6 +1,7 @@
 class TravelAgentSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email, :available, :image, :rating, :email, :trips
+  attributes :id, :name, :email, :available, :image, :rating, :email
 
   has_many :trips
   has_many :reviews
+  has_many :users
 end

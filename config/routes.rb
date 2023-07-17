@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [:destroy]
   resources :locations, only: [:show, :index]
   resources :hotels, only: [:show, :index]
-  resources :activities, only: [:show, :index]
+  resources :activities, only: [:index]
   resources :bookings, only: [:index, :create, :destroy]
 
   post "/signup", to: "users#create"

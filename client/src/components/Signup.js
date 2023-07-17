@@ -10,7 +10,6 @@ function Signup (){
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [password_confirmation, setPasswordConfirmation] = useState('')
-    const [is_agent, setIsAgent] = useState(false)
     const [errorsList, setErrorsList] = useState([])
     const { signup } = useContext(UserContext)
 
@@ -29,8 +28,7 @@ function Signup (){
                 image,
                 username,
                 password,
-                password_confirmation,
-                is_agent
+                password_confirmation
             })
         })
         .then(res => {
@@ -48,16 +46,11 @@ function Signup (){
                     setEmail('')
                     setAge('')
                     setImage('')
-                    setIsAgent(false)
                     const errorLis = newUser.errors.map(error => <li key={error}>{error}</li>)
                     setErrorsList(errorLis)
                 })
             }
         })
-    }
-
-    function onCheck(){
-        setIsAgent(!is_agent)
     }
 
     return (
@@ -117,9 +110,6 @@ function Signup (){
                 value={password_confirmation}
                 onChange={(e) => setPasswordConfirmation(e.target.value)}
                 className='signup-input'/>
-                <br/><br/>
-                <label>Are you an agent?</label>
-                <input type="checkbox" value={is_agent} onChange={() => onCheck()}/>
                 <br/><br/>
                 <button type="submit">Sign Up</button>
                 <p className="error-message">{errorsList}</p>

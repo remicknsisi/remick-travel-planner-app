@@ -1,5 +1,5 @@
 class LocationSerializer < ActiveModel::Serializer
-  attributes :id, :city, :country, :image, :trip_id
+  attributes :id, :city, :country, :image
 
-  belongs_to :trip
+  has_many :trips
 end

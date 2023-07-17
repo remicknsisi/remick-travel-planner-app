@@ -14,28 +14,12 @@ class TripsController < ApplicationController
         end
     end
 
-    # def trips_by_user
-    #     user = User.find_by(id: params[:user_id])
-    #     if user
-    #         render json: user.trips, status: :ok
+    # def create
+    #     trip = @user.trips.create(trip_params)
+    #     if trip.valid?
+    #         render json: trip, status: :created
     #     else
-    #         render json: {error: "Could not find trips for this user"}, status: :not_found
-    #     end
-    # end
-
-    def create
-        trip = @user.trips.create(trip_params)
-        if trip.valid?
-            render json: trip, status: :created
-        else
-            render json: { errors: trip.errors.full_messages }, status: :unprocessable_entity
-        end
-    end
-    # def test
-    #     countries = find_country(params[:country])
-
-    #     unless countries
-    #         render json: {error: 'Country not found'}
+    #         render json: { errors: trip.errors.full_messages }, status: :unprocessable_entity
     #     end
     # end
 

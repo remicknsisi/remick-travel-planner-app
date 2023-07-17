@@ -6,6 +6,8 @@ function Review({ review, onDelete }) {
     const {comment, rating, user, id} = review
     const { currentUser, handleDeleteReview } = useContext(UserContext)
 
+    console.log(review)
+
     function onDelete(){
         fetch(`/reviews/${id}`, {
             method: 'DELETE',

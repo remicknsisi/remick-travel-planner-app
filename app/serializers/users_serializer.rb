@@ -1,5 +1,5 @@
 class UsersSerializer < ActiveModel::Serializer
-  attributes :id, :name, :age, :email, :image, :reviews, :bookings, :trips
+  attributes :id, :name, :age, :email, :image
 
   has_many :reviews 
   has_many :travel_agents

@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_05_141948) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_13_001410) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
     t.integer "age_minimum"
-    t.integer "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "trip_id"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -35,14 +35,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_141948) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
-    t.integer "trip_id"
   end
 
   create_table "locations", force: :cascade do |t|
     t.string "city"
     t.string "country"
     t.string "image"
-    t.integer "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -83,7 +81,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_141948) do
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_agent"
   end
 
 end

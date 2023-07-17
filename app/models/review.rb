@@ -4,4 +4,6 @@ class Review < ApplicationRecord
 
     validates :comment, presence: true
     validates :rating, presence: true
+    validates :user_id, presence: true
+    validates :travel_agent_id, presence: true
 end
