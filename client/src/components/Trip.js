@@ -67,7 +67,6 @@ function Trip({ trip, isDisplayTrips }) {
             setError('This agent is currently unavailable for booking.')
         }
     }
-    //use conditional logic here to point out of this trip is already booked -- make it a validation
 
     function onDeleteBooking(){
         const deletedBooking = bookings.find(b => b.trip_id == trip.id)
