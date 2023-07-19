@@ -28,7 +28,6 @@ function TripDetails() {
             }
         })
     }, [])
-    //do i want to remove the booked attr of the trips object or will i use so a user cant book the same trip twice?
 
     if(trip.id)
         {return (

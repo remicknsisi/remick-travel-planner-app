@@ -26,6 +26,7 @@ const UserProvider = ({ children }) => {
   }
 
   function handleDeleteReview(deletedReview){
+    console.log('deleting review')
     const userUpdatedReviews = currentUser ? currentUser.reviews.filter(review => review.id !== deletedReview.id) : null
     const updatedUser = {...currentUser, reviews: userUpdatedReviews}
     setCurrentUser(updatedUser)
@@ -59,12 +60,12 @@ const UserProvider = ({ children }) => {
     setCurrentUser(userWithUpdatedBookingsAndTrips)
   }
 
-  function handleSubmitTrip(newTrip){
-    console.log('creating trip!')
-  }
+//   function handleSubmitTrip(newTrip){
+//     console.log('creating trip!')
+//   }
 
   return (
-    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview, handleDeleteAccount, handleEditUser, handleDeleteReview, handleBookTrip, handleDeleteBooking, handleSubmitTrip}}>
+    <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview, handleDeleteAccount, handleEditUser, handleDeleteReview, handleBookTrip, handleDeleteBooking}}>
       {children}
     </UserContext.Provider>
   )
