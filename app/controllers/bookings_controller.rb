@@ -5,8 +5,9 @@ class BookingsController < ApplicationController
     end
 
     def create
-        booking = @user.bookings.create!(booking_params)
-        if booking.valid?
+        booking = @user.bookings.new(booking_params)
+        if booking.valid? 
+            booking.save
             render json: booking, status: :created
         else
             render json: { errors: booking.errors.full_messages }, status: :unprocessable_entity
