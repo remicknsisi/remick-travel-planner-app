@@ -11,7 +11,6 @@ import Signup from "./components/Signup.js";
 import NewReviewForm from "./components/NewReviewForm.js";
 import TripDetails from "./components/TripDetails.js";
 import UserDetails from "./components/UserDetails.js";
-import NewTripForm from "./components/NewTripForm.js";
 import DisplayInspiration from "./components/DisplayInspiration.js";
 
 function App() {
@@ -40,9 +39,6 @@ function App() {
           </Route>
           <Route exact path="/trips">
             <DisplayTrips/>
-          </Route>
-          <Route exact path="/trips/new">
-            <NewTripForm/>
           </Route>
           <Route exact path="/trips/:id">
             <TripDetails/>

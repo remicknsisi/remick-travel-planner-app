@@ -1,12 +1,10 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../context/UserProvider.js";
-import { useHistory } from "react-router-dom";
 
 function Review({ review, onDeleteReview }) {
     const [error, setError] = useState('')
     const {comment, rating, user, id} = review
     const { currentUser, handleDeleteReview } = useContext(UserContext)
-    const history = useHistory()
 
     function onDelete(){
         fetch(`/reviews/${id}`, {

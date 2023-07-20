@@ -9,7 +9,7 @@ function Trip({ trip, isDisplayTrips }) {
     const [hotel, setHotel] = useState('')
     const [bookings, setBookings] = useState([])
     const [errorsList, setErrorsList] = useState([])
-    const { handleBookTrip, currentUser, handleDeleteBooking } = useContext(UserContext)
+    const { handleBookTrip, handleDeleteBooking } = useContext(UserContext)
     const history = useHistory()
 
     useEffect(() => {
@@ -85,7 +85,7 @@ function Trip({ trip, isDisplayTrips }) {
                     const errorMessage = message.error
                     setError(errorMessage)
                 })
-        }
+            }
         })
     }
 
