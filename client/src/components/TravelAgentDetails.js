@@ -45,7 +45,7 @@ function TravelAgentDetails() {
             <br/>
             <div className="container">
             <h3>Reviews</h3>
-            {travelAgent.id ? travelAgent.reviews.map(review => <Review key={review.id} review={review} onDelete={handleDeleteReview}/>) : null}
+            {travelAgent.id ? travelAgent.reviews.map(review => <Review key={review.id} review={review} onDeleteReview={handleDeleteReview}/>) : null}
             {travelAgent.reviews.length == 0 ? "No reviews have been written for this agent" : null}
             </div>
             <br/>

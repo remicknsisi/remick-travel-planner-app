@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { UserContext } from "../context/UserProvider.js";
 import { useHistory } from "react-router-dom";
 
-function Review({ review, onDelete }) {
+function Review({ review, onDeleteReview }) {
     const [error, setError] = useState('')
     const {comment, rating, user, id} = review
     const { currentUser, handleDeleteReview } = useContext(UserContext)
@@ -19,7 +19,7 @@ function Review({ review, onDelete }) {
                 res.json()
                 .then(deletedReview => {
                     handleDeleteReview(deletedReview)
-                    history.push(`/travelagents`)
+                    onDeleteReview(deletedReview)
                 })
             } else {
                 res.json()

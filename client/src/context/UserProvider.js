@@ -26,7 +26,6 @@ const UserProvider = ({ children }) => {
   }
 
   function handleDeleteReview(deletedReview){
-    console.log('deleting review')
     const userUpdatedReviews = currentUser ? currentUser.reviews.filter(review => review.id !== deletedReview.id) : null
     const updatedUser = {...currentUser, reviews: userUpdatedReviews}
     setCurrentUser(updatedUser)
