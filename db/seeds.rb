@@ -123,9 +123,6 @@ Location.create(
     image: "https://images.unsplash.com/photo-1613506140303-a3742bcbee78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2342&q=80"
 )
 
-# Trip.destroy_all
-# need ! exception if not working
-
 Trip.create(
     booked: false,
     travel_agent_id: rand(1..10),

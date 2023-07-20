@@ -4,5 +4,4 @@ class Booking < ApplicationRecord
 
     validates :user_id, presence: true
     validates :trip_id, presence: true
-    # need to validate this by user
 end

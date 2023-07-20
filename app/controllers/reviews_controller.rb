@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
     def create
         review = @user.reviews.create(review_params)
         if review.valid?
@@ -11,10 +10,8 @@ class ReviewsController < ApplicationController
 
     def destroy
         review = Review.find_by(id: params[:id])
-        # byebug
         if @user && @user.id == review.user_id
             review.destroy
-            puts "hi"
             render json: review, status: :ok
         else
             render json: { error: "You can only delete your own reviews!" }, status: :unauthorized
@@ -22,9 +19,7 @@ class ReviewsController < ApplicationController
     end
 
     private
-
     def review_params
         params.permit(:rating, :comment, :travel_agent_id)
     end
-
 end
