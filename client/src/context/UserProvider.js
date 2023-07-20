@@ -59,10 +59,6 @@ const UserProvider = ({ children }) => {
     setCurrentUser(userWithUpdatedBookingsAndTrips)
   }
 
-//   function handleSubmitTrip(newTrip){
-//     console.log('creating trip!')
-//   }
-
   return (
     <UserContext.Provider value={{currentUser, login, logout, signup, handleSubmitReview, handleDeleteAccount, handleEditUser, handleDeleteReview, handleBookTrip, handleDeleteBooking}}>
       {children}

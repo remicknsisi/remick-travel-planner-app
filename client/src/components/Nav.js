@@ -19,9 +19,9 @@ function Nav() {
     return (
         <div className="nav">
             <NavLink to="/" className="nav-link">Home</NavLink>
-            {currentUser ? <NavLink to="/trips" className="nav-link">My Trips</NavLink> : null}
-            {currentUser ? <NavLink to="/inspiration" className="nav-link">Get Inspired</NavLink> : null}
-            {currentUser ? <NavLink to="/travelagents" className="nav-link">Find an Agent</NavLink> : null}
+            <NavLink to="/trips" className="nav-link">My Trips</NavLink>
+            <NavLink to="/inspiration" className="nav-link">Get Inspired</NavLink>
+            <NavLink to="/travelagents" className="nav-link">Find an Agent</NavLink>
             {currentUser ? <button onClick={() => history.push(`/users/${currentUser.id}`)}>My Account</button> : null}
             {currentUser ? <button onClick={handleLogout}>Logout</button> : <button onClick={() => history.push('/login')}>Login</button>}
         </div>
