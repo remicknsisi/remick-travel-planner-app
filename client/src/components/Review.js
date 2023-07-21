@@ -3,7 +3,7 @@ import { UserContext } from "../context/UserProvider.js";
 
 function Review({ review, onDeleteReview }) {
     const [error, setError] = useState('')
-    const {comment, rating, user, id} = review
+    const {comment, rating, user, id, user_id} = review
     const { currentUser, handleDeleteReview } = useContext(UserContext)
 
     function onDelete(){
@@ -34,7 +34,9 @@ function Review({ review, onDeleteReview }) {
                 <div className="review">
                     {comment} | Rating: {'⭐'.repeat(rating)}
                     <br/>
-                    Posted by: {user.name} |  <button onClick={() => onDelete()}>Delete</button>
+                    {user_id === currentUser.id ? 
+                    <>Posted by: {user.name} |  <button onClick={() => onDelete()}>Delete</button> </>: 
+                    <>Posted by: {user.name}</>}
                     <p className="error-message">{error}</p>
                 </div>
             </div>
