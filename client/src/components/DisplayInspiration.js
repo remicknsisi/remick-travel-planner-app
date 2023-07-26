@@ -100,64 +100,64 @@ function DisplayInspiration() {
             {hotelsAreHidden ? null : <DisplayHotels/>}
             {mapsAreHidden ? null : (
                 <>
-                    <br/>
-                    <button onClick={(e) => {
+                    <br/><br/>
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(newYorkMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>New York</button>
-                    <button onClick={(e) => {
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(tokyoMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>Japan</button>
-                    <button onClick={(e) => {
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(seoulMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>South Korea</button>
-                    <button onClick={(e) => {
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(copenhagenMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>Copenhagen</button>
-                    <button onClick={(e) => {
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(cancunMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>Mexico</button>
-                    <button onClick={(e) => {
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(florenceMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>Italy</button>
-                    <button onClick={(e) => {
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(orlandoMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>Florida</button>
-                    <button onClick={(e) => {
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(australiaMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>Sydney</button>
-                    <button onClick={(e) => {
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(montrealMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>Canada</button>
-                    <button onClick={(e) => {
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(amsterdamMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>Netherlands</button>
-                    <button onClick={(e) => {
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(greeceMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>Greece</button>
-                    <button onClick={(e) => {
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(puertoRicoMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>Puerto Rico</button>
-                    <button onClick={(e) => {
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(parisMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>France</button>
-                    <button onClick={(e) => {
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(madridMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>Spain</button>
-                    <button onClick={(e) => {
+                    <button className="geo-btn" onClick={(e) => {
                         setSelectedMarkers(berlinMarkers)
                         setGeoHeaderText(e.target.innerText)
                     }}>Germany</button>

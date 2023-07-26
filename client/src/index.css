@@ -168,3 +168,8 @@ img {
 .profile-picture-account-details {
   height: 300px
 }
+
+.geo-btn {
+  border-radius: 0;
+  padding: 2px
+}
