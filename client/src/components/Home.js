@@ -8,7 +8,7 @@ function Home() {
         <div className="home">
             <div className="welcome">
                 <h2>Welcome to Remick Vacations Planner!</h2>
-                Utilize this SPA to book pre-packaged vacations with our experienced agents, or build out special offers when you sign up as a travel agent.
+                Utilize this SPA to book pre-packaged vacations with our experienced agents.
                 <br/><br/>
                 Click below or <Link to={`/signup`}>sign up</Link> to get started.
                 <br/>
