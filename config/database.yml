@@ -23,8 +23,8 @@ default: &default
 
 development:
   <<: *default
-  database: travel_planner_db
-  # database: remick_travel_planner_development
+  # database: travel_planner_db
+  database: remick_travel_planner_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
