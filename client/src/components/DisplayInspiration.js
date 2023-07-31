@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import DisplayActivities from "./DisplayActivities";
 import DisplayHotels from "./DisplayHotels";
 import DisplayLocations from "./DisplayLocations";
 import { UserContext } from "../context/UserProvider.js";

@@ -10,6 +10,7 @@ const Map = ({ markers, title }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [infoWindowData, setInfoWindowData] = useState();
 
+
   const onMapLoad = (map) => {
     setMapRef(map);
     const google=window.google
