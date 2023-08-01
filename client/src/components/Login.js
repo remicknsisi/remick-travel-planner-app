@@ -28,6 +28,7 @@ function Login() {
         .then(res => {
             if(res.ok){
                 res.json().then((user) => {
+                    console.log(user)
                     login(user)
                     setUsername('')
                     setPassword('')

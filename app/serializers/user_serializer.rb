@@ -1,4 +1,4 @@
-class UsersSerializer < ActiveModel::Serializer
+class UserSerializer < ActiveModel::Serializer
   attributes :id, :name, :age, :email, :image
 
   has_many :reviews 
