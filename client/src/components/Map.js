@@ -1,5 +1,5 @@
 import { GoogleMap, Marker, InfoWindow, useLoadScript } from "@react-google-maps/api";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "../map.css"
 
 const Map = ({ markers, title }) => {
@@ -10,14 +10,21 @@ const Map = ({ markers, title }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [infoWindowData, setInfoWindowData] = useState();
 
+  const [map, setMap] = useState(null)
+  const onLoad = useCallback((map) => setMap(map), [])
 
-  const onMapLoad = (map) => {
-    setMapRef(map);
-    const google=window.google
-    const bounds = new google.maps.LatLngBounds();
-    markers?.forEach(({ lat, lng }) => bounds.extend({ lat, lng }));
-    map.fitBounds(bounds);
-  };
+  useEffect(() => {
+    if (map) {
+      const bounds = new window.google.maps.LatLngBounds();
+      markers.map(marker => {
+        bounds.extend({
+          lat: marker.lat,
+          lng: marker.lng,
+        });
+      });
+      map.fitBounds(bounds);
+    }
+  }, [map, markers]);
 
   const handleMarkerClick = (id, lat, lng, address) => {
     mapRef?.panTo({ lat, lng });
@@ -34,7 +41,7 @@ const Map = ({ markers, title }) => {
         <h2>Showing Activities in {title}</h2>
         <GoogleMap
           mapContainerClassName="map-container"
-          onLoad={onMapLoad}
+          onLoad={onLoad}
           onClick={() => setIsOpen(false)}
         >
             {markers.map(({ address, lat, lng }, ind) => (
