@@ -11,7 +11,7 @@ function DisplayHotels() {
     }, [])
 
     return (
-        <div>
+        <div className="hotels-container">
             {hotels.map(h => <Hotel key={h.id} hotel={h}/>)}
         </div>
     );

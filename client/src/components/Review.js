@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, startTransition } from "react";
 import { UserContext } from "../context/UserProvider.js";
 
 function Review({ review, onDeleteReview }) {
@@ -47,3 +47,5 @@ function Review({ review, onDeleteReview }) {
 }
 
 export default Review;
+
+//maybe allow a user to click on visual stars

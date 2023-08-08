@@ -11,7 +11,7 @@ function DisplayLocations() {
     }, [])
 
     return (
-        <div>
+        <div className="locations-container">
             {locations.map(l => <Location key={l.id} location={l}/>)}
         </div>
     );

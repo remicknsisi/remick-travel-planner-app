@@ -5,7 +5,7 @@ function Location({ location }) {
     const { city, country, image } = location
 
     return (
-        <div>
+        <div className="locations">
             <h3>{city}, {country}</h3>
             <img className="city" src={image}/>
         </div>
@@ -13,3 +13,5 @@ function Location({ location }) {
 }
 
 export default Location;
+
+// render these in a grid

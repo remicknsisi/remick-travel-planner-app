@@ -5,7 +5,7 @@ function Hotel({ hotel }) {
     const { name, image, website } = hotel
 
     return (
-        <div>
+        <div className="hotels">
             <h3><Link to={{ pathname: `${website}` }} target="_blank">{name}</Link></h3>
             <img className="city" src={image}/>
         </div>
@@ -13,3 +13,5 @@ function Hotel({ hotel }) {
 }
 
 export default Hotel;
+
+// render these in a grid
