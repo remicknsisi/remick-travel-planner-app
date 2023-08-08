@@ -3,6 +3,7 @@
     "@faker-js/faker": "^8.0.2"
   },
   "dependencies": {
-    "@react-google-maps/api": "^2.19.0"
+    "@react-google-maps/api": "^2.19.0",
+    "react-datepicker": "^4.16.0"
   }
 }

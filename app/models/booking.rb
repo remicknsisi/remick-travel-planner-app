@@ -2,6 +2,9 @@ class Booking < ApplicationRecord
     belongs_to :user
     belongs_to :trip
 
+    validates :start_date, presence: true
+    validates :end_date, presence: true
+
     # validates :user_id, presence: true
     # validates :trip_id, presence: true
     # might be some unencesary validations on othe rmodels as well

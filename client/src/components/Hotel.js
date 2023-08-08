@@ -13,5 +13,3 @@ function Hotel({ hotel }) {
 }
 
 export default Hotel;
-
-// render these in a grid

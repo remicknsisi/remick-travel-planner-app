@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from "../context/UserProvider.js";
 import Activity from "./Activity";
 import { useHistory } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.css'
 
 function Trip({ trip, isDisplayTrips }) {
     const [location, setLocation] = useState('')
@@ -9,6 +11,16 @@ function Trip({ trip, isDisplayTrips }) {
     const [hotel, setHotel] = useState('')
     const [bookings, setBookings] = useState([])
     const [errorsList, setErrorsList] = useState([])
+    const [date, setDate] = useState(new Date());
+    const [startDate, setStartDate] = useState();
+    const [endDate, setEndDate] = useState();
+
+    const handleChange = (range) => {
+        const [startDate, endDate] = range;
+        setStartDate(startDate);
+        setEndDate(endDate);
+      };
+
     const { handleBookTrip, handleDeleteBooking } = useContext(UserContext)
     const history = useHistory()
 
@@ -48,7 +60,9 @@ function Trip({ trip, isDisplayTrips }) {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
-                trip_id: trip.id
+                trip_id: trip.id,
+                start_date: startDate,
+                end_date: endDate
             })
         })
         .then(res => {
@@ -106,6 +120,10 @@ function Trip({ trip, isDisplayTrips }) {
             <p>Itinerary: </p>
                 {trip.activities.map(a => <Activity key={a.id} activity={a}/>)}
             <br/>
+            <label>Select Date Range for Your Trip: </label>
+            <br/><br/>
+            <DatePicker selected={startDate} onChange={handleChange} startDate={startDate} endDate={endDate} selectsRange />
+            <br/><br/>
             <button onClick={() => onBookTrip()}>Book this Trip!</button>
             <p className="error-message">{errorsList}</p>
             <p className="error-message">{error}</p>

@@ -13,5 +13,3 @@ function Location({ location }) {
 }
 
 export default Location;
-
-// render these in a grid
