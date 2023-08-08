@@ -12,8 +12,6 @@ function NewReviewForm () {
     const { id } = useParams()
     const history = useHistory()
 
-    console.log(rating)
-
     useEffect(() => {
         fetch('/travel_agents')
         .then(res => {

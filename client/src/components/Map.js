@@ -15,6 +15,7 @@ const Map = ({ markers, title }) => {
 
   useEffect(() => {
     if (map) {
+      setIsOpen(false)
       const bounds = new window.google.maps.LatLngBounds();
       markers.map(marker => {
         bounds.extend({
@@ -73,4 +74,4 @@ const Map = ({ markers, title }) => {
 
 export default Map;
 
-// try to remove map error with activity name not updating; copenhagen erro - try to recreate (anchor); 
+//copenhagen erro - try to recreate (anchor); 
