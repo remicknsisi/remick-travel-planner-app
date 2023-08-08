@@ -1,15 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { UserContext } from "../context/UserProvider.js";
+import Rating from "./Rating.js";
 
 function NewReviewForm () {
     const [newComment, setNewComment] = useState('')
-    const [newRating, setNewRating] = useState()
     const [errorsList, setErrorsList] = useState([])
     const [travelAgents, setTravelAgents] = useState([])
+    const [rating, setRating] = useState(0);
     const { handleSubmitReview } = useContext(UserContext)
     const { id } = useParams()
     const history = useHistory()
+
+    console.log(rating)
 
     useEffect(() => {
         fetch('/travel_agents')
@@ -29,7 +32,7 @@ function NewReviewForm () {
 
         const newReview = {
             travel_agent_id: id,
-            rating: newRating,
+            rating: rating,
             comment: newComment
         }
 
@@ -45,7 +48,7 @@ function NewReviewForm () {
                 res.json().then((newReview) => {
                     handleSubmitReview(newReview)
                     setNewComment('')
-                    setNewRating()
+                    setRating()
                     history.push(`/travelagents/${id}`)})
             } else {
                 res.json().then((message) => {
@@ -62,9 +65,11 @@ function NewReviewForm () {
             <form className="form" onSubmit={onSubmitReview}>
             Leave a Comment: <input className="form-input" type="text" placeholder="E.g. This agent is the best!" value={newComment} onChange={e => setNewComment(e.target.value)}>
                 </input>
-                <br/>
-            Choose a Rating: <input className="form-input" type="number" placeholder="Rate 1-5 Stars" value={newRating} onChange={e => setNewRating(e.target.value)}>
-                </input>
+            <br/>
+            <br/>
+            Choose a Rating: 
+            <br/><br/>
+                <Rating rating={rating} setRating={setRating}/>
                 <br/><br/>
                 <button>Submit</button>
                 <p className="error-message">{errorsList}</p>

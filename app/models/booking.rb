@@ -5,10 +5,6 @@ class Booking < ApplicationRecord
     validates :start_date, presence: true
     validates :end_date, presence: true
 
-    # validates :user_id, presence: true
-    # validates :trip_id, presence: true
-    # might be some unencesary validations on othe rmodels as well
-
     validate :booking_exists
 
     def booking_exists
@@ -20,8 +16,3 @@ class Booking < ApplicationRecord
     end
 
 end
-
-# paid // date of booking for user submittable attributes on bookings
-# date by typing it in or attmempting a calendar pop up (try it out) - google calendar
-    # may be able to get it via HTML styling library
-# export course content download - learn co curriculum user on github will be avail 

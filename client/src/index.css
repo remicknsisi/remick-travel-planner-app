@@ -201,3 +201,10 @@ img {
   border: 7px outset black;
   max-width: 450px;
 }
+
+.on {
+  color: #000;
+}
+.off {
+  color: #ccc;
+}
