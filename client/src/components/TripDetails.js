@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import Activity from "./Activity";
 
@@ -11,6 +11,8 @@ function TripDetails() {
         activities: [],
         bookings: []
     })
+
+    const booking = trip.bookings.map(b => b.start_date + " ➡️ " + b.end_date)
 
     useEffect(() => {
         fetch(`/trips/${id}`)
@@ -33,10 +35,11 @@ function TripDetails() {
         {return (
         <div>
             <h2>Your Visit to {trip.location.country}</h2>
+            <h3>{booking}</h3>
             <p className="error-message">{error}</p>
             <img className="city" src={trip.location.image}/>
             <p>Location: {trip.location.city}, {trip.location.country}</p>
-            <p>Hotel: {trip.hotel.name} | Website: {trip.hotel.website}</p>
+            <p>Hotel: {trip.hotel.name} | <Link to={{ pathname: `${trip.hotel.website}` }} target="_blank">Website</Link></p>
             <p>Itinerary: </p>
                 {trip.activities.map(a => <Activity key={a.id} activity={a}/>)}
             <br/>
